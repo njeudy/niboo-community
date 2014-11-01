@@ -1,3 +1,3 @@
 [submodule "oerp_no_phoning_home"]
 	path = oerp_no_phoning_home
-	url = https://bitbucket.org/niboo/oerp_no_phoning_home
+url=git@bitbucket.org:niboo/oerp_no_phoning_home.git
