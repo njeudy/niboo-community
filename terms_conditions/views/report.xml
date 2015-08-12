@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <record id="act_report_xml_view" model="ir.ui.view">
+            <field name="name">ir.actions.report.xml.inherited</field>
+            <field name="model">ir.actions.report.xml</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Sales Agreement">
+                        <group>
+                            <group>
+                                <field name="add_terms_conditions" string="Attach Sales and Conditions the prints of this report" />
+                            </group>
+                            <group attrs="{'invisible':[('add_terms_conditions','=',False)]}">
+                                <field name="terms_conditions_language_field"  attrs="{'required':[('add_terms_conditions','=',True)]}" />
+                                <div>
+                                    <span>e.g.<br/>
+                                        for Sale Order - "partner_id.lang"<br/>
+                                        for Account Invoice - "partner_id.lang"</span>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
