@@ -28,7 +28,7 @@ class ir_attachment(Model):
     _inherit = 'ir.attachment'
 
     #Fields declaration
-    description = Text('Description', translate=True),
+    description = Text('Description', translate=True)
     language = Selection([
         ('default',_('Default')),
         ('en_US',_('English')),
