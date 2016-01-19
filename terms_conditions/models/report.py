@@ -74,7 +74,7 @@ class Report(Model):
         document_language = localdict.get('document_language',
                                           self._context.get('lang'))
 
-        company = model.company_id
+        company = object.company_id
         # todo check language
         terms_and_conditions_list = company.terms_and_conditions
 
