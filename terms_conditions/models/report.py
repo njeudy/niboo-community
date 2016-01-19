@@ -62,7 +62,6 @@ class Report(Model):
 
         user = self.env['res.users'].browse(self._uid)
 
-        company = user.company_id
         # todo change user language to report language (client language)
 
         language_field = original_report.terms_conditions_language_field
@@ -75,6 +74,7 @@ class Report(Model):
         document_language = localdict.get('document_language',
                                           self._context.get('lang'))
 
+        company = model.company_id
         # todo check language
         terms_and_conditions_list = company.terms_and_conditions
 
