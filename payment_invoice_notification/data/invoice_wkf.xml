@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="workflow.activity" id="act_markaspaid">
+            <field name="wkf_id" ref="account.wkf"/>
+            <field name="name">markaspaid</field>
+            <field name="action">write({'state':'markaspaid'})</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record model="workflow.transition" id="t_draft_markaspaid">
+            <field name="act_from" ref="account.act_draft"/>
+            <field name="act_to" ref="act_markaspaid"/>
+            <field name="signal">invoice_markaspaid</field>
+        </record>
+
+        <record model="workflow.transition" id="t_markaspaid_open">
+            <field name="act_from" ref="act_markaspaid"/>
+            <field name="act_to" ref="account.act_open"/>
+            <field name="signal">invoice_open</field>
+        </record>
+
+        <record model="workflow.transition" id="t_markaspaid_cancel">
+            <field name="act_from" ref="act_markaspaid"/>
+            <field name="act_to" ref="account.act_cancel"/>
+            <field name="signal">invoice_cancel</field>
+        </record>
+
+        <record model="workflow.transition" id="t_draft_open">
+            <field name="act_from" ref="account.act_draft"/>
+            <field name="act_to" ref="account.act_open"/>
+            <field name="signal">invoice_open</field>
+        </record>
+
+    </data>
+</openerp>

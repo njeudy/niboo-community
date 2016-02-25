@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document" >
+            <xpath expr="//div[@class='page']" position="inside">
+                <div t-if="o.state in ('markaspaid','paid')" style="position:absolute; top:550px; right:50px;">
+                    <img class="img img-responsive" alt="PAID" src="/payment_invoice_notification/static/img/paid_stamp.png" style="max-height: 180px;" />
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>
