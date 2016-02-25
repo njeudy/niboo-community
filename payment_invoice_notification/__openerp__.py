@@ -11,7 +11,7 @@ Add a state on the invoice between "open" and "paid"
 It will notify that the invoice is already paid but not reconcilied.
         """,
     'author': 'Niboo',
-    'depends': ['account','payment'],
+    'depends': ['account','account_cancel','payment'],
     'data': [
         'data/invoice_wkf.xml',
         'views/invoice_view.xml',
