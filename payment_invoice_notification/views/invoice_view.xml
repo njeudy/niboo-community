@@ -8,30 +8,16 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_supplier_form"/>
             <field name="arch" type="xml">
-                <xpath expr="/form/header" position="replace">
-                    <header>
-                        <button name="invoice_cancel"
-                                states="markaspaid"
-                                string="Cancel Invoice"
-                                groups="account.group_account_invoice"/>
-                        <button name="action_cancel_draft" states="cancel"
-                                string="Set to Draft" type="object"
-                                icon="terp-stock_effects-object-colorize"
-                                groups="account.group_account_invoice"/>
-                        <button name="%(account.action_account_state_open)d"
-                                type='action' string='Re-Open' states='paid'
-                                icon="gtk-convert"
-                                groups="account.group_account_user"/>
-                        <button name="invoice_open" states="draft,markaspaid"
-                                string="Open"
-                                groups="account.group_account_invoice"/>
-                        <button name="invoice_markaspaid" states="draft"
-                                string="Mark as paid"
-                                groups="account.group_account_invoice"/>
-                        <field name="state" widget="statusbar" nolabel="1"
-                               statusbar_visible="draft,markaspaid,open,paid"
-                               statusbar_colors='{"markaspaid":"blue"}'/>
-                    </header>
+                <xpath expr="//button[@name='invoice_open']" position="attributes">
+                    <attribute name="states">draft,markaspaid</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="statusbar_visible">draft,markaspaid,open,paid</attribute>
+                </xpath>
+                <xpath expr="//button[@name='invoice_open']" position="after">
+                    <button name="invoice_markaspaid" states="draft"
+                            string="Mark as paid"
+                            groups="account.group_account_invoice"/>
                 </xpath>
             </field>
         </record>
@@ -66,17 +52,13 @@
             </field>
         </record>
 
-
         <record id="invoice_supplier_cancel_form_inherit" model="ir.ui.view">
             <field name="name">invoice.supplier.cancel.form.inherit</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account_cancel.invoice_supplier_cancel_form_inherit"/>
             <field name="arch" type="xml">
-                <xpath expr="//button[@name='invoice_cancel']" position="replace">
-                    <button name="invoice_cancel"
-                            states="draft,proforma2,sale,open,markaspaid"
-                            string="Cancel Invoice"
-                            groups="account.group_account_invoice"/>
+                <xpath expr="//button[@name='invoice_cancel']" position="attributes">
+                    <attribute name="states">draft,open,markaspaid</attribute>
                 </xpath>
             </field>
         </record>

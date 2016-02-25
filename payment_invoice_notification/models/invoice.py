@@ -42,5 +42,3 @@ class AccountInvoice(models.Model):
             ('open','Open'),
             ('paid','Paid'),
             ('cancel','Cancelled'),]
-
-
