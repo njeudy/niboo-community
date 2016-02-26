@@ -27,5 +27,20 @@
                 </xpath>
             </field>
         </record>
+
+
+        <template id="report_invoice_document" inherit_id="account.report_invoice_document" >
+            <xpath expr="//div[@class='row'][last()]" position="after">
+                <div>
+                    <p>
+                        <strong>Conditions générales de vente :</strong>
+                        <p>
+                            En payant la présente, le client reconnait avoir lu les conditions générales de vente
+                            au verso et marquer son accord quant à leurs applications.
+                        </p>
+                    </p>
+                </div>
+            </xpath>
+        </template>
     </data>
 </openerp>

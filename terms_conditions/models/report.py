@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
+from openerp import fields
 from openerp.models import Model, api, _
 from openerp.fields import Boolean, Char
 from openerp.tools.safe_eval import safe_eval as eval
@@ -33,7 +33,6 @@ class IrActionsReportXML(Model):
     add_terms_conditions = Boolean(string='add Terms and Conditions',
                                    default=False)
     terms_conditions_language_field = Char('Language field')
-
 
 class Report(Model):
     _inherit = "report"
@@ -111,4 +110,3 @@ class Report(Model):
             return combined_pdf
         else:
             return original_report_pdf
-
