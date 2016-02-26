@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Author: Joël Grand-Guillaume, modified by Van Driessche Jérémy
-#    Copyright 2010-2015 Camptocamp SA
+#    Author: Van Driessche Jérémy
+#    Copyright 2015 Niboo SPRL
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
