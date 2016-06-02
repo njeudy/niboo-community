@@ -12,7 +12,7 @@
                     <page string="Sales Agreement">
                         <group>
                             <group>
-                                <field name="add_terms_conditions" string="Attach Sales and Conditions the prints of this report" />
+                                <field name="add_terms_conditions" string="Attach Sales and Conditions to the prints of this report" />
                             </group>
                             <group attrs="{'invisible':[('add_terms_conditions','=',False)]}">
                                 <field name="terms_conditions_language_field"  attrs="{'required':[('add_terms_conditions','=',True)]}" />
@@ -33,10 +33,10 @@
             <xpath expr="//div[@class='row'][last()]" position="after">
                 <div>
                     <p>
-                        <strong>Conditions générales de vente :</strong>
+                        <strong>Terms and Conditions:</strong>
                         <p>
-                            En payant la présente, le client reconnait avoir lu les conditions générales de vente
-                            au verso et marquer son accord quant à leurs applications.
+                            By paying this, the customer confirms to have read and accepted the Terms and
+                            Conditions overleaf.
                         </p>
                     </p>
                 </div>
