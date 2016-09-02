@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="edit_holiday_new" model="ir.ui.view">
+            <field name="name">Leave Request inherited</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/group/div/div/field[@name='date_from']" position="attributes">
+                    <attribute name="on_change">onchange_date_with_emp(date_to, date_from, employee_id, "date_from", context)</attribute>
+                </xpath>
+                <xpath expr="//sheet/group/group/div/div/field[@name='date_to']" position="attributes">
+                    <attribute name="on_change">onchange_date_with_emp(date_to, date_from, employee_id, "date_to", context)</attribute>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</openerp>
