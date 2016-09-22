@@ -1,34 +1,18 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Jérôme Guerriat
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2016 Niboo SPRL, Camptocamp SA
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'HR - Tasks In Timesheets',
+    'name': 'HR - Task In Timesheets',
     'category': 'HR',
     'summary': 'Allow the user to select task in a timesheet',
-    'website': '',
+    'website': 'https://odoo-community.org/',
+    'license': 'AGPL-3',
     'version': '9.0.1.0.0',
     'description': '''
     The user is now able to select a task in a timesheet
         ''',
-    'author': 'Niboo',
+    'author': 'Niboo SPRL, Camptocamp SA, Odoo Community Association (OCA)',
     'depends': [
         'hr_timesheet_sheet',
         'project_timesheet',
@@ -38,12 +22,8 @@
         'views/hr_timesheet_view.xml',
     ],
     'qweb': [
-        'static/src/xml/hr_timesheet.xml',
-    ],
-    'demo': [
-    ],
-    'css': [
+        'static/src/xml/hr_timesheet_task.xml',
     ],
     'installable': True,
-    'application': True,
+    'application': False,
 }
