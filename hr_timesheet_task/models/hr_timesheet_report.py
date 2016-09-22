@@ -18,20 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp import models, fields
+from openerp import fields, models
 
 
 class HrTimesheetReport(models.Model):
-    _inherit = "hr.timesheet.report"
+    _inherit = 'hr.timesheet.report'
 
     task_id = fields.Many2one('project.task', 'Task', readonly=True)
 
     def _select(self):
-        return super(HrTimesheetReport, self)._select()+""",
-            aal.task_id
-        """
+        return '%s,aal.task_id' % super(HrTimesheetReport, self)._select()
 
     def _group_by(self):
-        return super(HrTimesheetReport, self)._group_by()+""",
-            task_id"""
+        return '%s,task_id' % super(HrTimesheetReport, self)._group_by()

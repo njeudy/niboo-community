@@ -24,10 +24,10 @@
     'category': 'HR',
     'summary': 'Allow the user to select task in a timesheet',
     'website': '',
-    'version': '9.1.0',
-    'description': """
+    'version': '9.0.1.0.0',
+    'description': '''
     The user is now able to select a task in a timesheet
-        """,
+        ''',
     'author': 'Niboo',
     'depends': [
         'hr_timesheet_sheet',
