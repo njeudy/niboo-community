@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <delete model="project.task" search="[('project_id.name','=','Start here to discover Odoo')]"></delete>
+        <delete model="project.project" search="[('name','=','Start here to discover Odoo')]"></delete>
+        <delete model="account.analytic.account" search="[('name','=','Start here to discover Odoo')]"></delete>
+    </data>
+</openerp>
