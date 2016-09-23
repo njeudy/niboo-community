@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="edit_holiday_new">
+            <field name="name">Leave Request</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='number_of_days_temp']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='payslip_status']/.." position="after">
+                    <group>
+                        <field name="message" widget="html"/>
+                    </group>
+                    <group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
