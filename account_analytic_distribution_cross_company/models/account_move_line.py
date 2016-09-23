@@ -41,7 +41,8 @@ class AccountMoveLine(models.Model):
             AccountAnalyticAccount = self.env['account.analytic.account']
             account_analytic = AccountAnalyticAccount.browse(vals['account_id'])
             currency = self.company_id.currency_id
-            if currency != account_analytic.currency_id:
+            if account_analytic.currency_id \
+                    and (currency != account_analytic.currency_id):
                 vals['amount'] = currency.compute(
                     vals['amount'], account_analytic.currency_id)
 
