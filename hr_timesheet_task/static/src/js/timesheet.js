@@ -6,6 +6,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
     var form_common = require('web.form_common');
     var Model = require('web.DataModel');
     var time = require('web.time');
+    var hr_timesheet_sheet = require('hr_timesheet_sheet.sheet');
 
     var WeeklyTimesheet = core.form_custom_registry.get('weekly_timesheet').extend({
         events: {
@@ -50,7 +51,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
             var account_names;
             var default_get;
             var self = this;
-            return this.render_drop.add(new Model('account.analytic.line').call('default_get', [
+            return self.render_drop.add(new Model('account.analytic.line').call('default_get', [
                 ['account_id','general_account_id','journal_id','date','name','user_id','product_id','product_uom_id','amount','unit_amount','is_timesheet','task_id'],
                 new data.CompoundContext({'user_id': self.get('user_id'), 'default_is_timesheet': true})
             ]).then(function(result) {
@@ -143,14 +144,14 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
             });
         },
         init_add_account: function() {
-            if (this.dfm) {
-                this.dfm.destroy();
+            var self = this;
+            if (self.dfm) {
+                self.dfm.destroy();
             }
 
-            var self = this;
-            this.$('.oe_timesheet_weekly_add_row').show();
-            this.dfm = new form_common.DefaultFieldManager(this);
-            this.dfm.extend_field_desc({
+            self.$('.oe_timesheet_weekly_add_row').show();
+            self.dfm = new form_common.DefaultFieldManager(self);
+            self.dfm.extend_field_desc({
                 account: {
                     relation: 'account.analytic.account',
                 },
@@ -159,7 +160,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
                 },
             });
             var FieldMany2One = core.form_widget_registry.get('many2one');
-            self.account_m2o = new FieldMany2One(this.dfm, {
+            self.account_m2o = new FieldMany2One(self.dfm, {
                 attrs: {
                     name: 'account',
                     type: 'many2one',
@@ -167,7 +168,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
                 },
             });
 
-            self.task_m2o = new FieldMany2One(this.dfm, {
+            self.task_m2o = new FieldMany2One(self.dfm, {
                 attrs: {
                     name: 'task',
                     type: 'many2one',
@@ -179,7 +180,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
             });
             self.task_m2o.prependTo(this.$('.o_add_timesheet_line > div'));
 
-            this.account_m2o.prependTo(this.$('.o_add_timesheet_line > div')).then(function() {
+            self.account_m2o.prependTo(this.$('.o_add_timesheet_line > div')).then(function() {
                 self.account_m2o.$el.addClass('oe_edit_only');
             });
 
@@ -187,7 +188,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
                 self.onchange_account_id();
             });
 
-            this.$('.oe_timesheet_button_add').click(function() {
+            self.$('.oe_timesheet_button_add').click(function() {
                 var id = self.account_m2o.get_value();
                 var task_id = self.task_m2o.get_value();
                 if (id === false) {
