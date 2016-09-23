@@ -20,9 +20,9 @@
 ##############################################################################
 
 {
-    'name': 'Log work on timesheet with wizard',
+    'name': 'Work Log Wizard',
     'category': 'HR',
-    'summary': 'Log work on timesheet with wizard',
+    'summary': 'Log work on timesheets with a wizard',
     'website': '',
     'version': '1.0',
     'description': """
@@ -34,6 +34,8 @@
     'depends': [
         'hr_timesheet',
         'hr_timesheet_task',
+        'project',
+        'project_timesheet',
     ],
     'data': [
         'views/hr_timesheet.xml',
