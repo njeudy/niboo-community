@@ -33,7 +33,7 @@
         'hr_expense',
         'account_asset',
         'delete_odoo_project',
-        'account_deferred_revenue'
+        'account_deferred_revenue',
     ],
     'data': [
         'data/project_data.xml',
