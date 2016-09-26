@@ -1,27 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Pierre Faniel
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2016 Pierre Faniel
+# © 2016 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api
-from openerp import exceptions
-from openerp import models
+from openerp import api, exceptions, models
 
 
 class SaleOrders(models.Model):
@@ -32,10 +14,10 @@ class SaleOrders(models.Model):
     def check_invoice_policy(self):
         for order in self:
             for line in order.order_line:
-                if line.product_id.invoice_policy == 'cost' and \
-                        not order.project_id:
+                if line.product_id.invoice_policy == 'cost' \
+                        and order.env.user.has_group(
+                            'analytic.group_analytic_accounting') \
+                        and not order.project_id:
                     raise exceptions.ValidationError(
-                        'You must set a project for Time and Material'
-                        ' products')
-
-
+                        'You must set a project (Analytic Account) for "Time '
+                        'and Material" products.')
