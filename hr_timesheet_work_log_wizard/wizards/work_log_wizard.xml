@@ -16,7 +16,7 @@
                         </group>
                         <group string="Time and Date">
                             <field name="date_started"/>
-                            <field name="time_spent"/>
+                            <field name="time_spent" widget="float_time"/>
                         </group>
                         <group string="What did you do?">
                             <field name="product_id" attrs="{'invisible':[('display_product','=',False)]}"/>
