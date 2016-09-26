@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_project_kanban_inherited" model="ir.ui.view">
+            <field name="name">project.project.kanban.inherited</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="customer_image"/>
+                        <field name="use_tasks" position="after">
+                            <field name="use_issues"/>
+                            <field name="issue_ids" invisible="1"/>
+                            <field name="issue_needaction_count" invisible="1"/>
+                        </field>
+                    </xpath>
+                    <xpath expr="//div[@class='o_kanban_primary_left']" position="inside">
+                        <img t-if="record.customer_image.raw_value" class="nib partner_image" t-attf-src="data:image/png;base64,#{record.customer_image.raw_value}" />
+                    </xpath>
+                    <xpath expr="//div[@class='o_primary']" position="replace">
+                        <div class="o_primary">
+                            <a data-type="edit" href="#" class="nib edit_project oe_kanban_action oe_kanban_action_a setting"><t t-esc="record.name.value"/></a>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <template id="project_assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/project_kanban_improvement/static/css/project_dashboard.css" type="text/css" />
+            </xpath>
+        </template>
+    </data>
+</openerp>

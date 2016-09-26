@@ -1,0 +1,12 @@
+.nib.edit_project {
+    cursor: pointer;
+}
+.nib.edit_project:hover {
+    text-decoration: underline;
+}
+
+.nib.partner_image{
+    max-width: 90%;
+    width: auto;
+    max-height: 100px;
+}
