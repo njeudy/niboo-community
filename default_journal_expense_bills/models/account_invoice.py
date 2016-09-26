@@ -1,31 +1,13 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Jerome Guerriat
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2016 Jérôme Guerriat
+# © 2016 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import fields
-from openerp import models
+from openerp import fields, models
 
 
 class AccountInvoice(models.Model):
-
-    _inherit = "account.invoice"
+    _inherit = 'account.invoice'
 
     def _get_default_journal(self):
         journal_type = self._context.get('journal_type', False)
@@ -37,7 +19,7 @@ class AccountInvoice(models.Model):
             if invoice_type in ('out_invoice', 'out_refund'):
                 journal_type = 'sale'
 
-        user = self.env["res.users"].browse(self._uid)
+        user = self.env['res.users'].browse(self._uid)
 
         journals = self.env['account.journal'].search([
             ('type', '=', journal_type),
@@ -46,7 +28,7 @@ class AccountInvoice(models.Model):
         if journals:
             if journal_type == 'purchase':
                 journals_filtered = journals.filtered(
-                    lambda r: r.subtype == "vendor_bills")
+                    lambda r: r.subtype == 'vendor_bills')
 
                 if journals_filtered:
                     journals = journals_filtered

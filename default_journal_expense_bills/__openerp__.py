@@ -1,36 +1,24 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Jerome Guerriat
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2016 Jérôme Guerriat
+# © 2016 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Default Journal for Expenses and Vendor Bills',
-    'category': 'Human Resources',
-    'summary': 'Module select automatically the right journal for expenses and vendor bills',
+    'category': 'Accounting & Finance',
+    'summary': 'Automatically select the proper journal for expenses and vendor bills.',
     'website': '',
     'version': '9.1.0',
-    'description': """
-Module to modify the accounting journal:
+    'description': '''
+        This module selects automatically the proper journal for expenses
+        and vendor bills after they have been defined in the accounting
+        configuration.
 
-- allows to select automatically the right journal for expenses and vendor bills
+        Choose the subtype for a journal in Account > Configuration > Journal.
+        The one that has 'Vendor Bills' or 'Expenses' selected will be
+        set as default when creating new records.
 
-        """,
+        ''',
     'author': 'Niboo',
     'depends': [
         'hr_expense',
@@ -39,7 +27,7 @@ Module to modify the accounting journal:
     'data': [
         'views/account_journal.xml',
     ],
-    'qweb' : [
+    'qweb': [
     ],
     'demo': [
     ],
