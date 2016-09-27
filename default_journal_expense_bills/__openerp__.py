@@ -14,9 +14,19 @@
         and vendor bills after they have been defined in the accounting
         configuration.
 
-        Choose the subtype for a journal in Account > Configuration > Journal.
-        The one that has 'Vendor Bills' or 'Expenses' selected will be
-        set as default when creating new records.
+        Configuration
+        =============
+        Choose the subtype for a journal in Account > Configuration > Journal:
+        Set the journal for Vendor Bills to
+        - Type: Purchase
+        - Subtype: Vendor Bills
+        Set the journal for Expenses to
+        - Type: Purchase
+        - Subtype: Expenses
+
+        The one that has 'Vendor Bills' or 'Expenses' selected will be set as
+        default when creating the corresponding new records. Please note that
+        the journal type must be set to 'Purchase'.
 
         ''',
     'author': 'Niboo',
