@@ -43,9 +43,10 @@ class ProjectTask(models.Model):
 
                 if not partner.project_key:
                     continue
-                    raise exceptions.Warning(_('Partner Linked to a project '
-                                               'should have a project key '
-                                               'setted.'))
+                    # we should not raise this?
+                    # raise exceptions.Warning(_('Partner Linked to a project '
+                    #                            'should have a project key '
+                    #                            'setted.'))
 
                 if task.identifier and task.identifier.startswith(partner.project_key):
                     continue

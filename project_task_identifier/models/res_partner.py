@@ -31,7 +31,9 @@ class ResPartner(models.Model):
     def check_project_key(self):
         if not self.project_partner_sequence and self.project_key:
             self.create_sequence()
-            tasks = self.env['project.task'].search([('project_key', '=', False)])
+            # we should update existing tasks nop?
+            # tasks = self.env['project.task'].search([('project_key', '=', False)])
+
 
     @api.multi
     def create_sequence(self):
