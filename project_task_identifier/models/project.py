@@ -41,14 +41,9 @@ class ProjectTask(models.Model):
             if task.project_id.partner_id:
                 partner = task.project_id.partner_id.commercial_partner_id
 
-                if not partner.project_key:
-                    continue
-                    # we should not raise this?
-                    # raise exceptions.Warning(_('Partner Linked to a project '
-                    #                            'should have a project key '
-                    #                            'setted.'))
-
-                if task.identifier and task.identifier.startswith(partner.project_key):
+                if not partner.project_key or \
+                        (task.identifier
+                         and not self._context.get('force_update')):
                     continue
 
                 code = 'project.task.order.' + partner.project_key
@@ -69,7 +64,9 @@ class ProjectTask(models.Model):
         args = args or []
         domain = []
         if name:
-            domain = ['|', ('name', operator, name), ('identifier', operator, name)]
+            domain = ['|', ('name', operator, name),
+                      ('identifier', operator, name)]
+
         pos = self.search(domain + args, limit=limit)
         return pos.name_get()
 
@@ -78,6 +75,6 @@ class ProjectTask(models.Model):
     def name_get(self):
         result = []
         for task in self:
-            name = (task.identifier or "") + " - " +task.name
+            name = (task.identifier or "") + " - " + task.name
             result.append((task.id, name))
         return result

@@ -27,13 +27,17 @@ class ResPartner(models.Model):
     project_key = fields.Char('Project Identifier Key')
     project_partner_sequence = fields.Many2one('ir.sequence')
 
+    @api.multi
     @api.constrains('project_key')
     def check_project_key(self):
-        if not self.project_partner_sequence and self.project_key:
-            self.create_sequence()
-            # we should update existing tasks nop?
-            # tasks = self.env['project.task'].search([('project_key', '=', False)])
-
+        for partner in self:
+            if not partner.project_partner_sequence and partner.project_key:
+                partner.create_sequence()
+                # update existing tasks
+                tasks = self.env['project.task'].search([
+                    ('project_id.analytic_account_id.partner_id', '=', partner.id)
+                ])
+                tasks.with_context(force_update=True).compute_identifier()
 
     @api.multi
     def create_sequence(self):
