@@ -30,11 +30,12 @@ class ProjectVersion(models.Model):
     @api.multi
     def check_not_in_progress(self):
         self.ensure_one()
-        done = self.env.ref('project.project_stage_data_2')
+        done_stages = self.env['project.task.type'].search(
+            [('closed', '=', True)])
         not_started_tasks = self.env['project.task']
 
         for task in self.task_ids:
-            if task.stage_id.id != done.id:
+            if task.stage_id.id not in done_stages.ids:
                 not_started_tasks |= task
 
         if not_started_tasks:
@@ -71,7 +72,7 @@ class ProjectVersion(models.Model):
     @api.constrains('project_id')
     def _check_project(self):
         for version in self:
-            if version.project_id \
+            if version.project_id and version.task_ids \
                 and version.project_id not in version.task_ids.mapped(
                         'project_id'):
                 raise exceptions.ValidationError(
@@ -122,11 +123,12 @@ class ProjectTask(models.Model):
     @api.multi
     @api.constrains('version_id')
     def _check_version(self):
-        done = self.env.ref('project.project_stage_data_2')
+        done_stages = self.env['project.task.type'].search(
+            [('closed', '=', True)])
         done_states = self.env['project.version.state'].search(
             [('done', '=', True)])
         for task in self:
-            if task.stage_id.id != done.id \
+            if task.stage_id.id not in done_stages.ids \
                     and task.version_id.state_id.id in done_states.ids:
                 raise exceptions.ValidationError(
                     'You cannot add an unfinished task to a finished version')
