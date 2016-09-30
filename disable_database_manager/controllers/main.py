@@ -19,7 +19,7 @@ if hasattr(sys, 'frozen'):
                                          '..', 'views'))
     loader = jinja2.FileSystemLoader(path)
 else:
-    loader = jinja2.PackageLoader('openerp.addons.db_manager', 'views')
+    loader = jinja2.PackageLoader('openerp.addons.disable_database_manager', 'views')
 
 env = jinja2.Environment(loader=loader, autoescape=True)
 env.filters["json"] = json.dumps
