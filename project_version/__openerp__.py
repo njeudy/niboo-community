@@ -20,6 +20,9 @@ Allows to add a version on project and task.
         'views/project.xml',
         'views/project_version_state.xml',
     ],
+    'images': [
+       'static/description/versioning_cover.png',
+   ],
     'installable': True,
     'application': False,
 }
