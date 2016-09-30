@@ -4,19 +4,19 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Import Multiline Bank Statement',
+    'name': 'Import CSV Bank Statement',
     'category' : 'Accounting & Finance',
     'version': '0.1',
     'author': 'Samuel Lefever (Niboo SPRL), Jerome Sonnet (Be-Cloud)',
     'description' : """
-This module allows you to import the machine readable Multiline Files in Odoo: they are parsed and stored in human readable format in
-Accounting \ Bank and Cash \ Bank Statements.
+This module allows you to import the machine readable CSV Files from Luxembourg in Odoo: they are parsed and stored in human readable format in
+Accounting / Bank and Cash / Bank Statements.
 
-Bank Statements may be generated containing a subset of the Multiline information (only those transaction lines that are required for the
+Bank Statements may be generated containing a subset of the CSV information (taking only those transaction lines that are required for the
 creation of the Financial Accounting records). 
     
     """,
-    'data': [],
+    'data': ['views/account_csv.xml'],
     'depends': ['account_bank_statement_import'],
     'external_dependencies': {
         'python': ['unicodecsv', 'chardet']
