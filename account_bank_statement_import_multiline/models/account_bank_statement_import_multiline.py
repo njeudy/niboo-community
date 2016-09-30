@@ -1,15 +1,19 @@
-# -*- coding: utf-8 -*-
-# Author be-cloud (Jerome Sonnet)
-# Somme code from OFX importer
+# -*- encoding: utf-8 -*
+# © 2016 Samuel Lefever, Jerome Sonnet
+# © 2016 Niboo SPRL (<https://www.niboo.be/>), Be-Cloud
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import logging
 import StringIO
-import unicodecsv
-import chardet
 import codecs
 import dateutil.parser
 import base64
 import hashlib
+try:
+    import unicodecsv
+    import chardet
+except ImportError:
+    pass
 
 from openerp import api, fields, models, _
 from openerp.exceptions import UserError

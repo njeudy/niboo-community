@@ -1,13 +1,14 @@
 # -*- encoding: utf-8 -*-
+# © 2016 Samuel Lefever, Jerome Sonnet
+# © 2016 Niboo SPRL (<https://www.niboo.be/>), Be-Cloud
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 {
     'name': 'Import Multiline Bank Statement',
     'category' : 'Accounting & Finance',
     'version': '0.1',
-    'author': 'be-cloud.be (Jerome Sonnet)',
+    'author': 'Samuel Lefever (Niboo SPRL), Jerome Sonnet (Be-Cloud)',
     'description' : """
-Module to import Multiline bank statements.
-======================================
-
 This module allows you to import the machine readable Multiline Files in Odoo: they are parsed and stored in human readable format in
 Accounting \ Bank and Cash \ Bank Statements.
 
@@ -15,8 +16,11 @@ Bank Statements may be generated containing a subset of the Multiline informatio
 creation of the Financial Accounting records). 
     
     """,
-    'data': ['account_bank_statement_import_multiline_view.xml'],
+    'data': [],
     'depends': ['account_bank_statement_import'],
+    'external_dependencies': {
+        'python': ['unicodecsv', 'chardet']
+    },
     'demo': [],
     'auto_install': True,
     'installable': True,
