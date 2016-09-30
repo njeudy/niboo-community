@@ -6,9 +6,11 @@
 {
     'name': 'DB Blocking manager',
 
-    'summary': 'Block DB Manager',
+    'summary': 'Disable the database manager',
 
-    'description': '',
+    'description': '''
+Prevents any access to the database manager or its functionalities.
+    ''',
 
     'author': 'Niboo',
     'website': 'http://www.niboo.be',
