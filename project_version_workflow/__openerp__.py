@@ -12,12 +12,17 @@
 Allows to change task step on version state change.
     ''',
     'author': 'Niboo',
+    'license': 'AGPL-3',
     'depends': [
         'project_version',
         'project_workflow',
     ],
     'data': [
         'views/version_state_step_link.xml',
+        'security/ir.model.access.csv',
+    ],
+    'images': [
+        'static/description/versioning_cover.png',
     ],
     'installable': True,
     'application': False,

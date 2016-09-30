@@ -5,13 +5,14 @@
 {
     'name': 'Project - Version Management',
     'category': 'Project',
-    'summary': 'Allows to add a version on project and task',
+    'summary': 'Allows you to add a version on project and task',
     'website': 'https://www.niboo.be/',
     'version': '9.0.1.0.0',
     'description': '''
-Allows to add a version on project and task.
+Allows you to add a version on project and task.
     ''',
     'author': 'Niboo',
+    'license': 'AGPL-3',
     'depends': [
         'project',
     ],
@@ -19,10 +20,11 @@ Allows to add a version on project and task.
         'data/project_version_state.xml',
         'views/project.xml',
         'views/project_version_state.xml',
+        'security/ir.model.access.csv',
     ],
     'images': [
-       'static/description/versioning_cover.png',
-   ],
+        'static/description/versioning_cover.png',
+    ],
     'installable': True,
     'application': False,
 }
