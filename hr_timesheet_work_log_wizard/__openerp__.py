@@ -16,14 +16,13 @@
         """,
     'author': 'Niboo',
     'depends': [
-        'hr_timesheet',
-        'hr_timesheet_task',
-        'project',
         'project_timesheet',
+        'hr_timesheet_task',
     ],
     'data': [
         'wizards/work_log_wizard.xml',
         'views/hr_timesheet.xml',
+        'views/project_task.xml',
     ],
     'qweb': [],
     'demo': [

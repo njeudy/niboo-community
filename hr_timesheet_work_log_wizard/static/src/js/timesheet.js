@@ -40,29 +40,31 @@ odoo.define('readonly_sheet.sheet', function (require) {
 
             $(".oe_timesheet_weekly_box:parent").off('click.box');
             $(".oe_timesheet_weekly_box:parent").on('click.box', function (event) {
-                var project_and_task = $(event.currentTarget).attr('data-account-task').split(',');
-                var project_id = project_and_task[0];
-                var task_id = project_and_task[1];
+                if(!$(event.currentTarget).parent().hasClass('oe_timesheet_total')){
+                    var project_and_task = $(event.currentTarget).attr('data-account-task').split(',');
+                    var project_id = project_and_task[0];
+                    var task_id = project_and_task[1];
 
-                var days_offest = $(event.currentTarget).attr('data-day-count');
-                var date_start = self.field_manager.get_field_value("date_from");
-                var millis = new Date(date_start).getTime();
-                millis += days_offest * 24 * 60 * 60 *1000;
-                var true_date = new Date(millis);
+                    var days_offest = $(event.currentTarget).attr('data-day-count');
+                    var date_start = self.field_manager.get_field_value("date_from");
+                    var millis = new Date(date_start).getTime();
+                    millis += days_offest * 24 * 60 * 60 *1000;
+                    var true_date = new Date(millis);
 
-                self.do_action({
-                    name: _t("Log Work"),
-                    type: "ir.actions.act_window",
-                    res_model: "hr_timesheet.work.logger",
-                    domain : [],
-                    views: [[false, "form"]],
-                    target: 'new',
-                    context: {
-                        'default_analytic_account_id':parseInt(project_id),
-                        'default_task_id':parseInt(task_id),
-                        'default_date_started':true_date,
-                    },
-                },{on_close: result_handler});
+                    self.do_action({
+                        name: _t("Log Work"),
+                        type: "ir.actions.act_window",
+                        res_model: "hr_timesheet.work.logger",
+                        domain : [],
+                        views: [[false, "form"]],
+                        target: 'new',
+                        context: {
+                            'default_analytic_account_id':parseInt(project_id),
+                            'default_task_id':parseInt(task_id),
+                            'default_date_started':true_date,
+                        },
+                    },{on_close: result_handler});
+                }
             });
         }
     });
