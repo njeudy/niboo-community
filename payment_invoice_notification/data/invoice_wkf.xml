@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <record model="workflow.activity" id="act_markaspaid">
             <field name="wkf_id" ref="account.wkf"/>
             <field name="name">markaspaid</field>
