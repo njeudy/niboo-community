@@ -26,6 +26,7 @@ It will notify that the invoice is already paid but not reconciled.
         'views/report_invoice.xml',
     ],
     'images': [
+        'static/description/versioning_cover.png',
     ],
     'installable': True,
     'application': True,
