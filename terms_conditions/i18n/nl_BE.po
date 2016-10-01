@@ -15,14 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-# TODO: translate into proper Dutch (currently Google Translate)
 #. module: terms_conditions
 #: model:ir.ui.view,arch_db:terms_conditions.report_invoice_document
 msgid "<strong>Terms and Conditions:</strong>"
-msgstr "<strong>Algemene voorwaarden</strong>"
+msgstr "<strong>Algemene Verkoopsvoorwaarden:</strong>"
 
 #. module: terms_conditions
 #: model:ir.ui.view,arch_db:terms_conditions.report_invoice_document
+# TODO: translate into proper Dutch (currently Google Translate)
 msgid "By paying this, the customer confirms to have read and accepted the Terms and\n"
 "                            Conditions overleaf."
 msgstr "Door deze te betalen, de klant akkoord de bepalingen en voorwaarden van de verkoop te hebben gelezen keerzijde en het eens worden over hun applicaties."

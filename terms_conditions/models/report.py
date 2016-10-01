@@ -1,75 +1,50 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Gael Rabier
-#    Copyright 2015 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp import fields
-from openerp.models import Model, api, _
-from openerp.fields import Boolean, Char
+# © 2015 Gael Rabier
+# © 2015 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+from openerp import api, fields, models
 from openerp.tools.safe_eval import safe_eval as eval
 from pyPdf import PdfFileWriter, PdfFileReader
 import base64
 from cStringIO import StringIO
 
 
-class IrActionsReportXML(Model):
-    _inherit = "ir.actions.report.xml"
+class IrActionsReportXML(models.Model):
+    _inherit = 'ir.actions.report.xml'
 
-    add_terms_conditions = Boolean(string='add Terms and Conditions',
-                                   default=False)
-    terms_conditions_language_field = Char('Language field')
+    add_terms_conditions = fields.Boolean(string='add Terms and Conditions',
+                                          default=False)
+    terms_conditions_language_field = fields.Char('Language field')
 
-class Report(Model):
-    _inherit = "report"
 
-    @api.v7
-    def get_pdf(self, cr, uid, ids, report_name, html=None, data=None,
-                context=None):
+class Report(models.Model):
+    _inherit = 'report'
 
-        report = self._get_report_from_name(cr, uid, report_name)
-        report_pdf = super(Report, self).get_pdf(cr, uid, ids, report_name,
-                                                 html, data, context)
+    @api.multi
+    def get_pdf(self, report_name, html=None, data=None):
+        report = self._get_report_from_name(report_name)
+        report_pdf = super(Report, self).get_pdf(self, report_name, html,
+                                                 data)
 
-        if report.add_terms_conditions and len(ids) == 1:
-            report_pdf = self.add_terms_and_conditions(cr, uid, ids, report_pdf,
-                                                       report, context)
-
+        if report.add_terms_conditions and len(self) == 1:
+            report_pdf = self.add_terms_and_conditions(report_pdf, report)
         return report_pdf
 
     @api.model
-    def add_terms_and_conditions(self, ids, original_report_pdf,
-                                 original_report):
+    def add_terms_and_conditions(self, original_report_pdf, original_report):
 
         terms_and_conditions_decoded = False
         default_terms_and_conditions_decoded = False
-
-
-        user = self.env['res.users'].browse(self._uid)
 
         # todo change user language to report language (client language)
 
         language_field = original_report.terms_conditions_language_field
         model = original_report.model
 
-        object = self.env[model].browse(ids)
+        object = self.env[model].browse(self.ids)
         localdict = {'o': object}
         eval('document_language = o.%s' % language_field, localdict,
-             mode="exec", nocopy=True)
+             mode='exec', nocopy=True)
         document_language = localdict.get('document_language',
                                           self._context.get('lang'))
 
