@@ -20,9 +20,9 @@
 ##############################################################################
 
 {
-    'name': 'Real Impact Analytics - Delete Odoo project',
-    'category': 'Category',
-    'summary': 'Summary',
+    'name': 'Delete Odoo demo project',
+    'category': 'Project',
+    'summary': 'Remove the Odoo demo project',
     'website': '',
     'version': '9.1.0',
     'description': """

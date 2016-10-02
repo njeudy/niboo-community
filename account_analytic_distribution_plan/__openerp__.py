@@ -22,6 +22,7 @@
 {
     'name': 'Multiple Analytic Distribution Plan',
     'version': '1.0',
+    'summary': 'Manage analytic accounting through multiple universe with the possibility to prepare distribution to reuse',
     'category': 'Accounting & Finance',
     'description': """
 
