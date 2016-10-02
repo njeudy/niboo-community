@@ -26,7 +26,7 @@
     'description': """
 
         """,
-    'author': 'Niboo SPRL',
+    'author': 'Niboo',
     'website': 'https://www.niboo.be',
     'depends': [
         'account',

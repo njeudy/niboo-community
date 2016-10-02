@@ -12,7 +12,7 @@
     'description': '''
     The user is now able to select a task in a timesheet
         ''',
-    'author': 'Niboo SPRL, Camptocamp SA, Odoo Community Association (OCA)',
+    'author': 'Niboo, Camptocamp SA, Odoo Community Association (OCA)',
     'depends': [
         'hr_timesheet_sheet',
         'project_timesheet',
