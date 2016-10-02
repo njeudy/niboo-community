@@ -43,6 +43,10 @@
     'demo': [
     ],
     'css': [
+
+    ],
+    'images': [
+        'static/description/versioning_cover.png',
     ],
     'installable': True,
     'application': True,
