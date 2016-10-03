@@ -37,6 +37,9 @@
         'security/ir.model.access.csv',
     ],
     'demo': [],
+    'images': [
+        'static/description/cross_company_analytic_cover.png',
+    ],
     'test': [],
     'installable': True,
     'auto_install': False,
