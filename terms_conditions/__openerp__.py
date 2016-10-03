@@ -14,7 +14,7 @@ Allows you to add Terms and Conditions to your documents.
     'license': 'AGPL-3',
     'website': 'https://www.niboo.be/',
     'images': [
-        'static/description/versioning_cover.png',
+        'static/description/terms_conditions_cover.png',
     ],
     'depends': [
         'sale'
