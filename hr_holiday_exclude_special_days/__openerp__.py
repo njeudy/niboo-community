@@ -48,7 +48,7 @@ Module to modify the HR leave:
     'css': [
     ],
     'images': [
-        'static/description/exclud_holiday_cover.png',
+        'static/description/hr_holiday_exclude_special_days_cover.png',
     ],
     'installable': True,
     'application': True,
