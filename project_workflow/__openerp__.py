@@ -21,7 +21,7 @@ Allows you to add a new workflow for task with task step
         'security/ir.model.access.csv',
     ],
     'images': [
-        'static/description/versioning_cover.png',
+        'static/description/project_workflow.png',
     ],
     'installable': True,
     'application': False,
