@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Leave: exclude weekends and public holidays',
+    'name': 'Leave - exclude weekends and public holidays',
     'category': 'Human Resources',
     'summary': 'Module to exclude weekends and public holidays from leave days',
     'website': '',

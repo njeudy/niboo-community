@@ -38,7 +38,8 @@
     ],
     'demo': [],
     'images': [
-        'static/description/cross_company_analytic_cover.png',
+        'static/description/'
+        'account_analytic_distribution_cross_company_cover.png',
     ],
     'test': [],
     'installable': True,
