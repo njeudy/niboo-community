@@ -46,7 +46,7 @@
 
     ],
     'images': [
-        'static/description/versioning_cover.png',
+        'static/description/timesheet_cover.png',
     ],
     'installable': True,
     'application': True,

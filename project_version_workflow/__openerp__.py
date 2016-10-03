@@ -22,7 +22,7 @@ Allows to change task step on version state change.
         'security/ir.model.access.csv',
     ],
     'images': [
-        'static/description/versioning_cover.png',
+        'static/description/workflow_versioning_cover.png',
     ],
     'installable': True,
     'application': False,
