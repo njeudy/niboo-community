@@ -41,6 +41,10 @@
         'security/ir.model.access.csv',
         'wizard/account_reconcile_writeoff_view.xml',
     ],
+    'images': [
+        'static/description/'
+        'account_analytic_distribution_plan_cover.png',
+    ],
     'demo': [],
     'test': [],
     'installable': True,
