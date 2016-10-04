@@ -5,24 +5,23 @@
 
 {
     'name': 'DB Blocking manager',
-
     'summary': 'Block database manager',
-
     'description': '''
-Prevents any access to the database manager or its functionalities.
+Prevents any access to the database manager or its features.
     ''',
-
     'author': 'Niboo',
-    'website': 'http://www.niboo.be',
-
-    'version': '0.1',
-
-    'depends':['web'],
-
+    'license': 'AGPL-3',
+    'website': 'https://www.niboo.be',
+    'version': '9.0.1.0.0',
+    'depends': [
+        'web',
+    ],
     'data': [
         'views/webclient_templates.xml',
     ],
-
+    'images': [
+        'static/description/disable_database_manager_cover.png',
+    ],
     'auto_install': True,
     'installable': True,
     'active': True,
