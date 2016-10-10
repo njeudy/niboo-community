@@ -44,5 +44,5 @@ Please select a customer they follow to give access to this project
             super(ProjectProject, project).message_unsubscribe(
                 partner_ids, channel_ids)
             project.message_post(
-                body='Partner(s) removed from followers' % partner_names
+                body='Partner(s) %s removed from followers' % partner_names
             )
