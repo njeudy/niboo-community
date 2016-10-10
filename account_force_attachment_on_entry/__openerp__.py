@@ -4,27 +4,21 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Force attachments on financial entries',
+    'name': 'Account - force attachments on financial entries',
     'category': 'Accounting & Finance',
     'summary': 'Force attachments on Vendor Bill and Expense',
-    'website': 'http://www.niboo.be',
-    'version': '1.0',
+    'website': 'https://odoo-community.org/',
+    'license': 'AGPL-3',
+    'version': '9.0.1.0.0',
     'description': """
         This module makes it required to attach at least one document to vendor
         bills and expenses before they can be validated/submitted.
         """,
-    'author': 'Niboo',
+    'author': 'Niboo, Odoo Community Association (OCA)',
     'depends': [
         'account',
         'hr_expense',
         'document',
-    ],
-    'data': [
-    ],
-    'qweb': [],
-    'demo': [
-    ],
-    'css': [
     ],
     'installable': True,
     'application': False,
