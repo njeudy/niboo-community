@@ -20,6 +20,9 @@
         'hr_expense',
         'document',
     ],
+    'images': [
+        'static/description/account_force_attachment_on_entry_cover.png',
+    ],
     'installable': True,
     'application': False,
 }
