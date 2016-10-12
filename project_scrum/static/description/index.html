@@ -1,21 +1,79 @@
-<section class="oe_container">
-    <h2 class="oe_slogan">Project Scrum</h2><!-- Don't change the title, don't make it too long -->
-    <div style="display: block; margin: 0 auto; width: 704px;">
-        <div style="display: inline-block; position: relative; z-index: 1;">
-            <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 704px; height: 562px;">
-        </div>
-        <!--Replace the src of the following image-->
-        <img src="module_image.png" style="margin: 0 30px; display: block; position: absolute; width: 644px; height: 365px; z-index: 0; top: 270px;"/>
+<div id="loempia_tabs">
+    <ul role="navigation" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#desc" data-toggle="tab">Description</a></li>
+        <li><a href="#doc" data-toggle="tab">Documentation</a></li>
+    </ul>
+</div>
+
+<div id="loempia_tabs_content" class="tab-content">
+    <div id="desc" class="tab-pane active">
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h2 class="oe_slogan">Project Scrum</h2>
+                <h3 class="oe_slogan">Organize your project and tasks in Scrum methodology</h3>
+                <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
+                    <div style="display: inline-block; position: relative; z-index: 1;">
+                        <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
+                    </div>
+                    <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
+                </div>
+                <div class="oe_span6" style="font-size: 15px">
+                    <div>
+                        <p>
+                            This module allows you to organize your tasks with the Scrum methodology. Using sprints, you can easily plan when your tasks should be done.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="oe_container oe_separator"/>
+
+        <section class="oe_container">
+            <div class="oe_row">
+                <a href="http://www.niboo.be/page/contactus" target="_blank"><div class="oe_span6">
+                    <div class="oe_quote">
+                        <cite class="oe_cite oe_clearfix">
+                            <img class="oe_photo" src="niboo.png">
+                            <div class="oe_author">Focus on your business, we keep IT running</div>
+                        </cite>
+                    </div>
+                </div>
+                </a>
+                <div class="oe_span6">
+                    <h2>About Niboo</h2>
+                    Niboo is a technology company, specialized in developing business solutions on your needs. Niboo combines expertise in both IT and management consulting. As an active partner in the Odoo Community, Niboo also contributes to the evolution of the open-source business solutions.
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="col-md-6 col-md-offset-3 mb16 mt16">
-        <h3 class="oe_slogan">Organize your project and tasks in Scrum methodology</h3>
-        <div>
-            <p>
-               This module allows you to organize your tasks with the Scrum methodology. Using sprints, you can easily plan when your tasks should be done.
-            </p>
-        </div>
-        <p class="text-center">
-            Copyright &#169; <a href="https://www.niboo.be/" class="o_default_snippet_text"><img src="icon.png" alt="Niboo" style="height: 30px"/></a>
-        </p>
+    <div id="doc" class="tab-pane">
+        <h2 class="oe_slogan">User guide</h2>
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to create a new Scrum Team?</h3>
+                <div><img class="img img-responsive oe_span6" src="create_scrum.png"/></div>
+                <ol class="oe_span6" style="font-size: 15px">
+                    <li>In the Project app, go to Configuration/Scrum Teams.</li>
+                    <li>Click on "Create"</li>
+                    <li>A Wizard opens where you can fill the name of your new team as well as assign it to a sprint and a project.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="oe_container oe_dark">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to create a new Sprint?</h3>
+                <ol class="oe_span6" style="font-size: 15px">
+                    <li>In the project app go to Search/Sprints.</li>
+                    <li>Click on create.</li>
+                    <li>Fill in the wizard, all fields are mandatory except the check boxes.</li>
+                    <li>Once a Sprint is created you can click on it and see its details.
+                        Note that in the details you have a button giving a list of the linked tasks as well as a link to the Scrum Team details assignated to the Sprint.</li>
+                </ol>
+                <div><img class="img img-responsive oe_span6" src="sprint.png"/></div>
+            </div>
+        </section>
     </div>
-</section>
+</div>
