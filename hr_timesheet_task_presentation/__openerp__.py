@@ -22,11 +22,12 @@
 {
     'name': 'HR - Timesheets design',
     'category': 'HR',
-    'summary': 'An awsome presentation',
-    'website': '',
-    'version': '9.1.0',
+    'summary': 'A more user-friendly timesheet',
+    'website': 'https://www.niboo.be/',
+    'version': '9.0.1.0.0',
+    'license': 'AGPL-3',
     'description': """
-        Display the timesheet in a more convenient way
+        Groups the tasks on a timesheet by customer and gives the option to easily hide tasks.
         """,
     'author': 'Niboo',
     'depends': [
