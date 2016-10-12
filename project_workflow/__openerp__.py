@@ -7,9 +7,11 @@
     'category': 'Project',
     'summary': 'Add a workflow to project tasks',
     'website': 'https://www.niboo.be/',
-    'version': '1.0',
+    'version': '9.0.1.0.0',
     'description': '''
-Allows you to add a new workflow for task with task step
+Define a workflow enabling you to better manage the state of your tasks.
+Create workflows personalized to the different types of tasks you possess.
+Advance your task in its different steps and states seamlessly and coherently.
     ''',
     'license': 'AGPL-3',
     'author': 'Niboo',
