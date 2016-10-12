@@ -69,6 +69,9 @@ class HRHolidays(models.Model):
     @api.model
     def onchange_date_with_emp(self, holiday_ids, date_to, date_from, employee_id,
                                type_change):
+        if not date_to or not date_from:
+            return
+
         # convert to user timezone
         date_to = self.change_to_user_tz(date_to)
         date_from = self.change_to_user_tz(date_from)
