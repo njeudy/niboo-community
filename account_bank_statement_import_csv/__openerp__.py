@@ -5,6 +5,7 @@
 
 {
     'name': 'Import CSV Bank Statement',
+    'summary': 'Import Bank Statements from Luxembourg',
     'category' : 'Accounting & Finance',
     'version': '0.1',
     'author': 'Samuel Lefever (Niboo SPRL), Jerome Sonnet (Be-Cloud)',
