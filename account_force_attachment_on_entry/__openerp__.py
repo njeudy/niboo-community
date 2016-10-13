@@ -7,13 +7,13 @@
     'name': 'Account - force attachments on financial entries',
     'category': 'Accounting & Finance',
     'summary': 'Force attachments on Vendor Bill and Expense',
-    'website': 'https://odoo-community.org/',
+    'website': 'https://www.niboo.be/',
     'license': 'AGPL-3',
     'version': '9.0.1.0.0',
-    'description': """
+    'description': '''
         This module makes it required to attach at least one document to vendor
-        bills and expenses before they can be validated/submitted.
-        """,
+        bills and expenses before they can be validated/submitted.    
+    ''',
     'author': 'Niboo',
     'depends': [
         'account',
