@@ -1,23 +1,6 @@
-# -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Jerome Guerriat
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2016 Jérôme Guerriat
+# © 2016 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields, api, _
 from datetime import datetime, timedelta
@@ -36,13 +19,13 @@ class HRHolidays(models.Model):
                  'date_from', 'date_to')
     def _compute_message(self):
         for holiday in self:
+            total_days_taken = 0
             if holiday.date_from and holiday.date_to:
                 if holiday.number_of_days_temp % 0.5 != 0:
                     raise Warning(_("Please select a multiple of 0.5 days"))
 
                 time_from = self.str_to_timezone(holiday.date_from)
                 time_to = self.str_to_timezone(holiday.date_to)
-
                 message = ""
 
                 for timestamp in self.datespan(time_from, time_to):
@@ -50,17 +33,21 @@ class HRHolidays(models.Model):
                         holiday.is_full_day(timestamp, time_from, time_to)
 
                     if is_full_day:
+                        total_days_taken += 1
                         message = \
 """
 %s <b>whole day</b> %s<br/>
 """ % (message, timestamp.date())
                     else:
+                        total_days_taken += 0.5
                         message = \
 """
 %s <b style=\"color:red;\">half day</b> %s<br/>
 """ % (message, timestamp.date())
 
                 holiday.message = message
+                holiday.number_of_days_temp = total_days_taken
+                holiday.number_of_days = total_days_taken
 
     @api.multi
     def holidays_validate(self):
@@ -89,10 +76,14 @@ class HRHolidays(models.Model):
                 is_full_day = holiday.is_full_day(timestamp, time_from, time_to)
                 date = timestamp.date()
 
+                time = employee.company_id.hours_per_day
                 if is_full_day:
-                    self.create_leave_analytic_line(account, employee, date, 8)
+                    self.create_leave_analytic_line(account, employee,
+                                                    date, time)
                 else:
-                    self.create_leave_analytic_line(account, employee, date, 4)
+                    time /= 2
+                    self.create_leave_analytic_line(account, employee,
+                                                    date, time)
 
         return return_value
 
@@ -142,7 +133,7 @@ class HRHolidays(models.Model):
         date_to = time_to.date()
 
         if (timestamp.date() == date_from and not time_from.hour < 12)\
-            or (timestamp.date() == date_to and not time_to.hour > 12):
+            or (timestamp.date() == date_to and not time_to.hour >= 12):
                 return False
 
         return True
