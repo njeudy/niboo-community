@@ -5,11 +5,11 @@
 {
     'name': 'Project - Version Management',
     'category': 'Project',
-    'summary': 'Allows you to add a version on project and task',
+    'summary': 'Allows the management of versions in projects',
     'website': 'https://www.niboo.be/',
     'version': '9.0.1.0.0',
     'description': '''
-Allows you to add a version on project and task.
+Allows you to manage versions in your projects.
     ''',
     'author': 'Niboo',
     'license': 'AGPL-3',
