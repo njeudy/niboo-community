@@ -14,7 +14,7 @@
         This module makes it required to attach at least one document to vendor
         bills and expenses before they can be validated/submitted.
         """,
-    'author': 'Niboo, Odoo Community Association (OCA)',
+    'author': 'Niboo',
     'depends': [
         'account',
         'hr_expense',
