@@ -30,7 +30,7 @@
         the journal type must be set to 'Purchase'.
 
         ''',
-    'author': 'Niboo, Odoo Community Association (OCA)',
+    'author': 'Niboo',
     'depends': [
         'hr_expense',
         'account'
