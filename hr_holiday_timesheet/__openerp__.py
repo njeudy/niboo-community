@@ -7,7 +7,8 @@
     'name': 'HR - Holiday On Timesheet',
     'category': 'HR',
     'summary': "Timesheet shows employee's holidays",
-    'website': '',
+    'website': 'http://www.niboo.be',
+    'license': 'AGPL-3',
     'version': '9.1.0',
     'description': """
     When a leave is approved, this module create analytic lines for the holidays to appear in the timesheet

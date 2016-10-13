@@ -8,9 +8,9 @@ from openerp import models
 
 
 class ResCompany(models.Model):
-    _inherit = "res.company"
+    _inherit = 'res.company'
 
-    hours_per_day = fields.Float(default="8",
-                                 help="The hours employees need to log"
-                                      " per day in order for a timesheet"
-                                      " to be valid.")
+    hours_per_day = fields.Float(default='8',
+                                 help='The hours employees need to log'
+                                      ' per day in order for a timesheet'
+                                      ' to be valid.')

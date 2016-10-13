@@ -8,6 +8,6 @@ from openerp import fields, api, models
 
 class AccountAnalyticLine(models.Model):
 
-    _inherit = "account.analytic.line"
+    _inherit = 'account.analytic.line'
 
-    leave_id = fields.Many2one('hr.holidays', string="Related Leave")
+    leave_id = fields.Many2one('hr.holidays', string='Related Leave')

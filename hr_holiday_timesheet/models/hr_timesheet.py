@@ -15,6 +15,6 @@ class HRTimesheetSheet(models.Model):
         for ts in self:
             if any(line.leave_id for line in ts.timesheet_ids):
                 raise UserError(
-                    "You can't delete a timesheet with leaves."
+                    'You can\'t delete a timesheet with leaves.'
                 )
         return super(HRTimesheetSheet, self).unlink()
