@@ -16,7 +16,7 @@ class HrTimesheetSheet(models.Model):
             'type': 'ir.actions.act_window',
             'view_id': self.env.ref(
                 'hr_timesheet_work_log_wizard.work_logger_wizard').id,
-            'name': 'Log work',
+            'name': 'Log Work',
             'target': 'new',
             'res_model': 'hr_timesheet.work.logger',
             'view_type': 'form',

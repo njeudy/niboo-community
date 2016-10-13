@@ -19,7 +19,7 @@
                             <field name="time_spent" widget="float_time"/>
                         </group>
                         <group string="What did you do?">
-                            <field name="product_id" attrs="{'invisible':[('display_product','=',False)]}"/>
+                            <field name="product_id" attrs="{'invisible':[('display_product','=',False)], 'required':[('display_product','=',True)]}"/>
                         </group>
                         <field name="description" nolabel="1" placeholder="Description"/>
                     </group>

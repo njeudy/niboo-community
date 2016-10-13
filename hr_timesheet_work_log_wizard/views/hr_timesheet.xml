@@ -19,8 +19,9 @@
             </field>
         </record>
 
-        <template id="assets_backend" name="log work wizard assets" inherit_id="web.assets_backend">
+        <template id="assets_backend" name="hr_timesheet_work_log_wizard assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/hr_timesheet_work_log_wizard/static/src/less/timesheet.less"/>
                 <script type="text/javascript" src="/hr_timesheet_work_log_wizard/static/src/js/timesheet.js"></script>
             </xpath>
         </template>
