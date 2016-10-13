@@ -18,7 +18,6 @@ class AccountJournal(models.Model):
 
 class AccountChartTemplate(models.Model):
     _inherit = 'account.chart.template'
-    _description = 'Templates for Account Chart'
 
     @api.multi
     def _prepare_all_journals(self, acc_template_ref, company,

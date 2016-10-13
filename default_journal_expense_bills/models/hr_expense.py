@@ -10,7 +10,7 @@ class HrExpense(models.Model):
     _inherit = 'hr.expense'
 
     def _get_default_journal(self):
-        user = self.env['res.users'].browse(self._uid)
+        user = self.env.user
         journal_ids = self.env['account.journal'].search([
             ('type', '=', 'purchase'),
             ('company_id', '=', user.company_id.id),

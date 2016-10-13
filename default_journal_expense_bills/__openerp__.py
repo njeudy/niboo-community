@@ -7,7 +7,7 @@
     'name': 'Account - Default Journal for Expense and Vendor Bill',
     'category': 'Accounting & Finance',
     'summary': 'Automatically select the proper journal for expenses and vendor bills.',
-    'website': 'https://odoo-community.org/',
+    'website': 'https://www.niboo.be/',
     'license': 'AGPL-3',
     'version': '9.0.1.0.0',
     'description': '''

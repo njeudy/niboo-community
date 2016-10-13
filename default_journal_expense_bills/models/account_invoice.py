@@ -19,7 +19,7 @@ class AccountInvoice(models.Model):
             if invoice_type in ('out_invoice', 'out_refund'):
                 journal_type = 'sale'
 
-        user = self.env['res.users'].browse(self._uid)
+        user = self.env.user
 
         journals = self.env['account.journal'].search([
             ('type', '=', journal_type),
