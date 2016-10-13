@@ -24,7 +24,12 @@
                         <tr t-if="prev!=account.account">
                             <t t-set="prev" t-value="account.account"/>
                             <td class="oe_timesheet_weekly_account" colspan="2" style="background:rgba(226, 226, 224, 0.6);text-align:right;">
-                                <img style="height:30px;" t-attf-src="/web/image?model=res.partner&amp;field=image_small&amp;id=#{account.partner_id}"/>
+                                <t t-if="account.partner_id">
+                                    <img style="height:30px;" t-attf-src="/web/image?model=res.partner&amp;field=image_small&amp;id=#{account.partner_id}"/>
+                                </t>
+                                <t t-if="!account.partner_id">
+                                    <img style="height:30px;" t-attf-src="/web/image?model=res.partner&amp;field=image_small"/>
+                                </t>
                                 <a href="javascript:void(0)" t-att-data-id="JSON.stringify(account.account)" style="color:#a24689;">
                                     <t t-esc="widget.account_names[account.account]"/>
                                 </a>

@@ -110,7 +110,17 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
                         }
                         return day;
                     });
-                    return {account_task: account_id_task_id, account: account_id, days: days, account_defaults: account_defaults, task: lines[0].task_id,partner_id:lines[0].partner_id[0]};
+
+                    var partner_id = undefined;
+
+                    if(lines[0].partner_id){
+                        if(parseInt(lines[0].partner_id, 10) == lines[0].partner_id){
+                            partner_id = lines[0].partner_id;
+                        } else {
+                            partner_id = lines[0].partner_id[0];
+                        }
+                    }
+                    return {account_task: account_id_task_id, account: account_id, days: days, account_defaults: account_defaults, task: lines[0].task_id, partner_id: partner_id};
                 }).value();
 
                 // we need the name_get of the analytic accounts
