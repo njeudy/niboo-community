@@ -1,21 +1,98 @@
-<section class="oe_container">
-    <h2 class="oe_slogan">Log work wizard</h2><!-- Don't change the title, don't make it too long -->
-    <div style="display: block; margin: 0 auto; width: 704px;">
-        <div style="display: inline-block; position: relative; z-index: 1;">
-            <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 704px; height: 562px;">
-        </div>
-        <!--Replace the src of the following image-->
-        <img src="module_image.png" style="margin: 0 30px; display: block; position: absolute; width: 644px; height: 365px; z-index: 0; top: 270px;"/>
+<div id="loempia_tabs">
+    <ul role="navigation" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#desc" data-toggle="tab">Description</a></li>
+        <li><a href="#doc" data-toggle="tab">Documentation</a></li>
+    </ul>
+</div>
+
+<div id="loempia_tabs_content" class="tab-content">
+    <div id="desc" class="tab-pane active">
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h2 class="oe_slogan">Timesheet - Work Logger</h2>
+                <h3 class="oe_slogan">Log time through an awesome wizard!</h3>
+                <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
+                    <div style="display: inline-block; position: relative; z-index: 1;">
+                        <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
+                    </div>
+                    <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
+                </div>
+                <div class="oe_span6">
+                    <div style="font-size: 15px;">
+                        <p>This module adds a wizard to log your work easier.</p>
+                        <p>The timesheet grid has been disable to avoid issues with the widget and to force a description for each time log.</p>
+                        <p>This also forces users to specify the project they were working on.</p>
+                        <p>The wizard also allows you to select a task which will automatically set the project.</p>
+                        <p>You can also specify a product for each time log.</p>
+                        <p>The wizard is also available from the task view and by clicking directly in the desired timesheet cell!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="oe_container oe_separator"/>
+
+        <section class="oe_container">
+            <div class="oe_row">
+                <a href="http://www.niboo.be/page/contactus" target="_blank"><div class="oe_span6">
+                    <div class="oe_quote">
+                        <cite class="oe_cite oe_clearfix">
+                            <img class="oe_photo" src="niboo.png">
+                            <div class="oe_author">Focus on your business, we keep IT running</div>
+                        </cite>
+                    </div>
+                </div>
+                </a>
+                <div class="oe_span6">
+                    <h2>About Niboo</h2>
+                    Niboo is a technology company, specialized in developing business solutions to your needs. Niboo combines expertise in both IT and management consulting. As an active partner in the Odoo Community, Niboo also contributes to the evolution of open-source business solutions.
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="col-md-6 col-md-offset-3 mb16 mt16">
-        <h3 class="oe_slogan">This module allows you to log your work on your timesheet.</h3>
-        <div>
-            <p>
-                This module allows you to easily select a product when you log your time.
-            </p>
-        </div>
-        <p class="text-center">
-            Copyright &#169; <a href="https://www.niboo.be/" class="o_default_snippet_text"><img src="icon.png" alt="Niboo" style="height: 30px"/></a>
-        </p>
+    <div id="doc" class="tab-pane">
+        <h2 class="oe_slogan">User Guide</h2>
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to log time from your timesheets?</h3>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="work_log_button_ts.png"/>
+                </div>
+                <ol class="oe_span6" style="font-size: 15px;">
+                    <li>To log work, go to your timesheets and click on the button <b>Log Work</b></li>
+                    <li>You can also directly click on the line of the project/task at the desired date and it will pre-fill the task (if there is a task), project and date.</li>
+                </ol>
+            </div>
+        </section>
+        <section class="oe_container oe_dark">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to log time from tasks?</h3>
+                <ul class="oe_span6" style="font-size: 15px;">
+                    <li>To log work from a task, go to the desired task and click on the button <b>Log Work</b>.</li>
+                    <li>The task, project and date will be pre-filled.</li>
+                </ul>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="task_log_work.png"/>
+                </div>
+            </div>
+        </section>
+
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to manage available products on a project?</h3>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="available_products.png"/>
+                </div>
+                <ol class="oe_span6" style="font-size: 15px;">
+                    <li>As project manager with <b>Analytic Accounting</b> rights, go to <b>Sales > Sale order</b> and create a new <b>Quotation</b></li>
+                    <li>Select the project (it's under <b>Analytic Account</b>)</li>
+                    <li>Add the allowed products in the Sale Order.</li>
+                </ol>
+                <p style="font-size: 15px;">
+                    <b>Note:</b> this modules limits you to create only one quotation per project.
+                </p>
+            </div>
+        </section>
     </div>
-</section>
+</div>
+
