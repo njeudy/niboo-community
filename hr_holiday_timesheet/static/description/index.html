@@ -1,41 +1,86 @@
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <div class="oe_span12">
-        <h2 class="oe_slogan">Automatic leave in the timesheets</h2>
-        </div>
-        <div class="oe_span12">
-            <div class="oe_demo oe_picture oe_screenshot">
+<div id="loempia_tabs">
+    <ul role="navigation" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#desc" data-toggle="tab">Description</a></li>
+        <li><a href="#doc" data-toggle="tab">Documentation</a></li>
+    </ul>
+</div>
 
+<div id="loempia_tabs_content" class="tab-content">
+    <div id="desc" class="tab-pane active">
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h2 class="oe_slogan">Timesheet - Automatic leaves in timesheets</h2>
+                <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
+                    <div style="display: inline-block; position: relative; z-index: 1;">
+                        <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
+                    </div>
+                    <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
+                </div>
+                <div class="oe_span6">
+                    <div style="font-size: 15px;">
+                        <p>This module will display the employee's holidays on their timesheet once they are approved</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="oe_span6">
-            <p class="oe_mt32">
-When a leave is approved, it appears automatically on the user timesheet
-            </p>
-        </div>
-    </div>
-</section>
+        </section>
 
-<section class="oe_container oe_separator">
-</section>
+        <section class="oe_container oe_separator"/>
 
-<section class="oe_container">
-    <div class="oe_row">
-        <div class="oe_span6">
-            <div class="oe_quote">
-                <cite class="oe_cite oe_clearfix">
-                    <img class="oe_photo" src="niboo.png">
-                    <div class="oe_author">Focus on your business, we keep IT running</div>
-                    <div class="oe_job"><a href="http://www.niboo.be" target="_blank">niboo.be</a></div>
-                </cite>
+        <section class="oe_container">
+            <div class="oe_row">
+                <a href="http://www.niboo.be/page/contactus" target="_blank"><div class="oe_span6">
+                    <div class="oe_quote">
+                        <cite class="oe_cite oe_clearfix">
+                            <img class="oe_photo" src="niboo.png">
+                            <div class="oe_author">Focus on your business, we keep IT running</div>
+                        </cite>
+                    </div>
+                </div>
+                </a>
+                <div class="oe_span6">
+                    <h2>About Niboo</h2>
+                    Niboo is a technology company, specialized in developing business solutions to your needs. Niboo combines expertise in both IT and management consulting. As an active partner in the Odoo Community, Niboo also contributes to the evolution of open-source business solutions.
+                </div>
             </div>
-        </div>
-        <p>
-            <h2>About Niboo</h2>
-            Niboo is a technology company, specialized in developing business solutions on your needs. Niboo combines expertise in both IT and management consulting. As an active partner in the Odoo Community, Niboo also contributes to the evolution of the open-source business solutions.
-        </p>
+        </section>
     </div>
-</section>
+    <div id="doc" class="tab-pane">
+        <h2 class="oe_slogan">User Guide</h2>
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to configure</h3>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="configure_company.png"/>
+                </div>
+                <ol class="oe_span6" style="font-size: 15px;">
+                    <li>First, you have to define the number of hours your employee should do per day. This is configured on the company form. The default value is 8 hours per day</li>
+                </ol>
+            </div>
+        </section>
+        <section class="oe_container oe_dark">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to use?</h3>
+                <ul class="oe_span6" style="font-size: 15px;">
+                    <li>Once your company is configured, everything is set. The users can now make leave request.</li>
+                </ul>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="request.png"/>
+                </div>
+            </div>
+        </section>
 
-<section class="oe_container oe_separator">
-</section>
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">Result</h3>
+                <div class="oe_span6">
+                    <img class="img img-responsive" src="result.png"/>
+                </div>
+                <ol class="oe_span6" style="font-size: 15px;">
+                    <li>Once they are approved, the leave will now appear in your employee's timesheet. If they took a full day of holiday, a line with the company "number of hours" will appear in the timesheet.</li>
+                    <li>Of course, if they took half a day, only half of that amount will appear.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</div>
+
