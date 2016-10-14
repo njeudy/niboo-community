@@ -10,7 +10,7 @@
     'version': '9.0.1.0.0',
     'description': '''
 Define a workflow enabling you to better manage the state of your tasks.
-Create workflows personalized to the different types of tasks you possess.
+Create workflows personalized to the different types of tasks you have.
 Advance your task in its different steps and states seamlessly and coherently.
     ''',
     'license': 'AGPL-3',
