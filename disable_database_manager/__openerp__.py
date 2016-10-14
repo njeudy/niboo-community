@@ -4,10 +4,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html)
 
 {
-    'name': 'DB Blocking manager',
-    'summary': 'Block database manager',
+    'name': 'Disable DB manager',
+    'summary': 'Disable database manager',
     'description': '''
-Prevents any access to the database manager or its features.
+Prevents any access to the database manager and its features.
     ''',
     'author': 'Niboo',
     'license': 'AGPL-3',
