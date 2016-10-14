@@ -1,32 +1,16 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Tobias Zehntner
-#    Copyright 2016 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2016 Tobias Zehntner
+# © 2016 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Project - Customer Name before Project',
+    'name': 'Project - Customer name',
     'category': 'Project',
-    'summary': 'Project - Customer name before project name',
-    'website': '',
-    'version': '9.1.0',
+    'summary': 'Put customer name on projects tiles',
+    'website': 'https://www.niboo.be/',
+    'version': '9.0.1.0.0',
     'description': """
-        - Customer name before project name
+        This module puts the customer names on the projects tiles and the taks tiles.
         """,
     'author': 'Niboo',
     'depends': [
@@ -36,6 +20,8 @@
         'views/project_dashboard.xml'
     ],
     'qweb': [
+    ],
+    'images': [
     ],
     'demo': [
     ],
