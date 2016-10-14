@@ -9,7 +9,8 @@
     'website': 'https://www.niboo.be/',
     'version': '9.0.1.0.0',
     'description': '''
-Allows to change task step on version state change.
+This module makes the link between the Project - Light Workflow module and the Project - Version Management module.
+It automatically changes the step of your tasks when you put a version in production.
     ''',
     'author': 'Niboo',
     'license': 'AGPL-3',

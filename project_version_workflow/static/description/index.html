@@ -1,32 +1,65 @@
-<section class="oe_container">
-    <div class="oe_row oe_spaced">
-        <h2 class="oe_slogan">Project Workflow - Version Management</h2><!-- Don't change the title, don't make it too long -->
-        <h3 class="oe_slogan">Manage the step of your tasks when changing the state of your version</h3>
-        <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
-            <div style="display: inline-block; position: relative; z-index: 1;">
-                <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
-            </div>
-            <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
-        </div>
-        <div class="oe_span6">
-            <div>
-                <p>Automatically change the step of your task when putting a version in production !</p>
-            </div>
-        </div>
-    </div>
-</section>
+<div id="loempia_tabs">
+    <ul role="navigation" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#desc" data-toggle="tab">Description</a></li>
+        <li><a href="#doc" data-toggle="tab">Documentation</a></li>
+    </ul>
+</div>
 
-<section class="jumbotron" style="color:white;background-color: #606061;margin-bottom: -40px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <p class="mt16">
-                    <strong>Need help or just looking for more information ?</strong>
-                </p>
+<div id="loempia_tabs_content" class="tab-content">
+    <div id="desc" class="tab-pane active">
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h2 class="oe_slogan">Project Workflow - Version Management</h2>
+                <h3 class="oe_slogan">Manage the step of your tasks when changing the state of your version</h3>
+                <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
+                    <div style="display: inline-block; position: relative; z-index: 1;">
+                        <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
+                    </div>
+                    <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
+                </div>
+                <div class="oe_span6" style="font-size: 15px">
+                    <div>
+                        <p>This module makes the link between the <b>Project - Light Workflow</b> module and the <b>Project - Version Management</b> module.</p>
+                        <p>It automatically changes the step of your tasks when you put a version in production.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <a class="btn btn-primary btn-lg pull-right mt8" style="color: #FFFFFF !important;" href="https://www.niboo.be/page/contactus"><i class="fa fa-arrow-right"></i> Contact Us Now </a>
+        </section>
+
+
+        <section class="oe_container oe_separator"/>
+
+        <section class="oe_container">
+            <div class="oe_row">
+                <a href="http://www.niboo.be/page/contactus" target="_blank"><div class="oe_span6">
+                    <div class="oe_quote">
+                        <cite class="oe_cite oe_clearfix">
+                            <img class="oe_photo" src="niboo.png">
+                            <div class="oe_author">Focus on your business, we keep IT running</div>
+                        </cite>
+                    </div>
+                </div>
+                </a>
+                <div class="oe_span6">
+                    <h2>About Niboo</h2>
+                    Niboo is a technology company, specialized in developing business solutions on your needs. Niboo combines expertise in both IT and management consulting. As an active partner in the Odoo Community, Niboo also contributes to the evolution of the open-source business solutions.
+                </div>
             </div>
-        </div>
+        </section>
     </div>
-</section>
+    <div id="doc" class="tab-pane">
+        <h2 class="oe_slogan">User guide</h2>
+        <section class="oe_container">
+            <div class="oe_row oe_spaced">
+                <h3 class="oe_slogan">How to use this module?</h3>
+                <div><img class="img img-responsive oe_span6" src="docu_image.png"/></div>
+                <ol class="oe_span6" style="font-size: 15px">
+                    <li>Go in <b>Configuration / Version State / Task Step Configuration</b>.</li>
+                    <li>Fill in the fields. When a <b>version</b> will be set at the state filled in, all tasks of the <b>type</b> filled in will automatically be changed to the <b>step</b> filled.</li>
+                    <li>This is especially usefull when you set different steps for the <b>done</b> stage (e.g: tasks on the staging <b>version state</b> before being passed to the production <b>version state</b>).</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</div>
+
