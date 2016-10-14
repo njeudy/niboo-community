@@ -4,10 +4,12 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Import CSV Bank Statement',
+    'name': 'Import CSV (LUX) Bank Statement',
+    'category': 'Accounting & Finance',
     'summary': 'Import Bank Statements from Luxembourg',
-    'category' : 'Accounting & Finance',
-    'version': '0.1',
+    'website': 'https://www.niboo.be/',
+    'version': '9.0.1.0.0',
+    'license': 'AGPL-3',
     'author': 'Samuel Lefever (Niboo SPRL), Jerome Sonnet (Be-Cloud)',
     'description' : """
 This module allows you to import the machine readable CSV Files from Luxembourg in Odoo: they are parsed and stored in human readable format in
@@ -22,7 +24,10 @@ creation of the Financial Accounting records).
     'external_dependencies': {
         'python': ['unicodecsv', 'chardet']
     },
-    'demo': [],
-    'auto_install': True,
+    'images': [
+        'static/description/account_bank_statement_import_csv_cover.png',
+    ],
     'installable': True,
+    'application': False,
 }
+
