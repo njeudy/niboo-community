@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Documents - Terms and Conditions',
-    'summary': 'Add Terms and Conditions on your documents !',
+    'summary': 'Add Terms and Conditions to your documents',
     'version': '9.0.1.0.0',
     'author': 'Niboo',
     'category': 'Document Management',
