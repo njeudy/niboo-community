@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2016 Gael Rabier
+# © 2016 Jérôme Guerriat
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
@@ -20,13 +20,8 @@
         'views/project_task_view.xml',
         'views/res_partner_view.xml',
     ],
-    'qweb': [],
     'images': [
         'static/description/project_task_identifier_cover.png',
-    ],
-    'demo': [
-    ],
-    'css': [
     ],
     'installable': True,
     'application': True,
