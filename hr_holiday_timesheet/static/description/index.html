@@ -9,7 +9,7 @@
     <div id="desc" class="tab-pane active">
         <section class="oe_container">
             <div class="oe_row oe_spaced">
-                <h2 class="oe_slogan">Timesheet - Automatic leaves in timesheets</h2>
+                <h2 class="oe_slogan">Display leaves automatically in your timesheets</h2>
                 <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
                     <div style="display: inline-block; position: relative; z-index: 1;">
                         <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="oe_span6">
                     <div style="font-size: 15px;">
-                        <p>This module will display the employee's holidays on their timesheet once they are approved</p>
+                        <p>This module will display the employee's holidays in their timesheet once they are approved.</p>
                     </div>
                 </div>
             </div>
@@ -48,21 +48,22 @@
         <h2 class="oe_slogan">User Guide</h2>
         <section class="oe_container">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">How to configure</h3>
+                <h3 class="oe_slogan">Configuration</h3>
                 <div class="oe_span6">
                     <img class="img img-responsive" src="configure_company.png"/>
                 </div>
                 <ol class="oe_span6" style="font-size: 15px;">
-                    <li>First, you have to define the number of hours your employee should do per day. This is configured on the company form. The default value is 8 hours per day</li>
+                    <li>Define the number of hours your employee should work per day: <b>Settings > Company > Configuration</b> (default is 8 hours)</li>
+                    <li>This number will then be used to log a day of leave in the timesheet</li>
                 </ol>
             </div>
         </section>
         <section class="oe_container oe_dark">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">How to use?</h3>
-                <ul class="oe_span6" style="font-size: 15px;">
-                    <li>Once your company is configured, everything is set. The users can now make leave request.</li>
-                </ul>
+                <h3 class="oe_slogan">How to use</h3>
+                <div class="oe_span6" style="font-size: 15px;">
+                    <p>Once your company is configured, everything is set. The users can now make leave request.</p>
+                </div>
                 <div class="oe_span6">
                     <img class="img img-responsive" src="request.png"/>
                 </div>
@@ -71,14 +72,13 @@
 
         <section class="oe_container">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">Result</h3>
                 <div class="oe_span6">
                     <img class="img img-responsive" src="result.png"/>
                 </div>
-                <ol class="oe_span6" style="font-size: 15px;">
-                    <li>Once they are approved, the leave will now appear in your employee's timesheet. If they took a full day of holiday, a line with the company "number of hours" will appear in the timesheet.</li>
-                    <li>Of course, if they took half a day, only half of that amount will appear.</li>
-                </ol>
+                <div class="oe_span6" style="font-size: 15px;">
+                    <p>As soon as the leave is approved, it will appear in your employee's timesheet in the line <b>Leaves</b>. If they took a full day off,
+                        it will be logged with the number of hours configured in the company settings. If they took half a day off, it will be logged with half of the amount.</p>
+                </div>
             </div>
         </section>
     </div>

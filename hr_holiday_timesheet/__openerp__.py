@@ -24,15 +24,9 @@
         'views/view_holiday_request.xml',
         'views/res_company_view.xml',
     ],
-    'qweb': [
-    ],
-    'demo': [
-    ],
-    'css': [
-    ],
     'images': [
       'static/description/hr_holiday_timesheet_cover.png',
     ],
     'installable': True,
-    'application': True,
+    'application': False,
 }
