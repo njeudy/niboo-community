@@ -4,17 +4,16 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Work Log Wizard',
+    'name': 'Timesheet - Work Logger',
     'category': 'HR',
     'summary': 'Log work on timesheets with a wizard',
     'license': 'AGPL-3',
     'website': 'https://www.niboo.be',
     'version': '9.0.1.0.0',
     'description': '''
-This module allows logging work efficiently on timesheets with a wizard.
-The user launches the wizard with a button at the top of the timesheet or by
-clicking on the timesheet line and can define project, task, product, date and
-hours.
+Allows logging work efficiently on timesheets. The user launches the wizard from
+either within the timesheet or a task. There they can define project, task,
+product, description, date and hours.
         ''',
     'author': 'Niboo',
     'depends': [
