@@ -2,6 +2,7 @@
     <ul role="navigation" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#desc" data-toggle="tab">Description</a></li>
         <li><a href="#doc" data-toggle="tab">Documentation</a></li>
+        <li><a href="#rel" data-toggle="tab">Related Modules</a></li>
     </ul>
 </div>
 
@@ -10,21 +11,23 @@
         <section class="oe_container">
             <div class="oe_row oe_spaced">
                 <h2 class="oe_slogan">Timesheet - Work Logger</h2>
-                <h3 class="oe_slogan">Log time through an awesome wizard!</h3>
+                <h3 class="oe_slogan">Makes logging time easy and efficient</h3>
                 <div class="oe_span6" style="display: block; margin: 0 auto; height:400px;">
                     <div style="display: inline-block; position: relative; z-index: 1;">
                         <img src="screen_niboo.png" style="margin: 0 auto; display: block; width: 425px;">
                     </div>
                     <img src="module_image.png" style="margin: 0 30px -335px 18px;display: block;position: relative;width: 389px;height: 222px;z-index: 0;top: -330px;"/>
                 </div>
-                <div class="oe_span6">
-                    <div style="font-size: 15px;">
-                        <p>This module adds a wizard to log your work easier.</p>
-                        <p>The timesheet grid has been disable to avoid issues with the widget and to force a description for each time log.</p>
-                        <p>This also forces users to specify the project they were working on.</p>
-                        <p>The wizard also allows you to select a task which will automatically set the project.</p>
-                        <p>You can also specify a product for each time log.</p>
-                        <p>The wizard is also available from the task view and by clicking directly in the desired timesheet cell!</p>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="font-size: 15px;display: table-cell;vertical-align: middle;">
+                        <p>Add a wizard to simply log your work:</p>
+                        <ul>
+                            <li>Direct access from timesheets and tasks: click on the <b>Log Work</b> button or directly on the desired timesheet table cell</li>
+                            <li>Choose a task, and the corresponding project is automatically set</li>
+                            <li>Makes it possible to specify a product for each entry</li>
+                            <li>Forces user to specify which project they worked on</li>
+                            <li>Makes user describe the work they have done</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -50,49 +53,78 @@
             </div>
         </section>
     </div>
+
     <div id="doc" class="tab-pane">
         <h2 class="oe_slogan">User Guide</h2>
         <section class="oe_container">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">How to log time from your timesheets?</h3>
-                <div class="oe_span6">
-                    <img class="img img-responsive" src="work_log_button_ts.png"/>
+                <h3 class="oe_slogan">How to log time from your timesheets</h3>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="display: table-cell;vertical-align: middle;">
+                        <img class="img img-responsive" src="work_log_button_ts.png" style="border:1px solid lightgrey; padding: 5px;box-shadow: 4px 4px 8px lightgrey;"/>
+                    </div>
                 </div>
-                <ol class="oe_span6" style="font-size: 15px;">
-                    <li>To log work, go to your timesheets and click on the button <b>Log Work</b></li>
-                    <li>You can also directly click on the line of the project/task at the desired date and it will pre-fill the task (if there is a task), project and date.</li>
-                </ol>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <ol style="font-size: 15px;display: table-cell;vertical-align: middle;">
+                        <li>To log work, go to your timesheets and click on the button <b>Log Work</b><br/></li>
+                        <li>You can also directly click on the desired line and date and the wizard
+                            will be pre-filled with task (if there is one), project and date</li>
+                    </ol>
+                </div>
             </div>
         </section>
         <section class="oe_container oe_dark">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">How to log time from tasks?</h3>
-                <ul class="oe_span6" style="font-size: 15px;">
-                    <li>To log work from a task, go to the desired task and click on the button <b>Log Work</b>.</li>
-                    <li>The task, project and date will be pre-filled.</li>
-                </ul>
-                <div class="oe_span6">
-                    <img class="img img-responsive" src="task_log_work.png"/>
+                <h3 class="oe_slogan">How to log time from tasks</h3>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <p style="font-size: 15px;display: table-cell;vertical-align: middle;">
+                        To log work from a task, go to the desired task and click on the button <b>Log Work</b>. The task, project and date will be pre-filled.
+                    </p>
+                </div>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="display: table-cell;vertical-align: middle;">
+                        <img class="img img-responsive" src="task_log_work.png" style="border:1px solid lightgrey; padding: 5px;box-shadow: 4px 4px 8px lightgrey;"/>
+                    </div>
                 </div>
             </div>
         </section>
+    </div>
 
+    <div id="rel" class="tab-pane">
+        <h2 class="oe_slogan">Related modules from Niboo</h2>
         <section class="oe_container">
             <div class="oe_row oe_spaced">
-                <h3 class="oe_slogan">How to manage available products on a project?</h3>
-                <div class="oe_span6">
-                    <img class="img img-responsive" src="available_products.png"/>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="display: table-cell;vertical-align: middle;">
+                        <a href="https://apps.openerp.com/apps/modules/9.0/hr_holiday_timesheet">
+                            <img class="img img-responsive" style="border:1px solid lightgrey; padding: 5px;box-shadow: 4px 4px 8px lightgrey;" src="hr_holiday_timesheet_cover.png"/>
+                        </a>
+                    </div>
                 </div>
-                <ol class="oe_span6" style="font-size: 15px;">
-                    <li>As project manager with <b>Analytic Accounting</b> rights, go to <b>Sales > Sale order</b> and create a new <b>Quotation</b></li>
-                    <li>Select the project (it's under <b>Analytic Account</b>)</li>
-                    <li>Add the allowed products in the Sale Order.</li>
-                </ol>
-                <p style="font-size: 15px;">
-                    <b>Note:</b> this modules limits you to create only one quotation per project.
-                </p>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="font-size: 15px;display: table-cell;vertical-align: middle;">
+                        <h2>Leaves in your timesheets</h2>
+                        <p>Display the employee's approved holidays directly in their timesheet!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="oe_container oe_dark">
+            <div class="oe_row oe_spaced">
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="font-size: 15px;display: table-cell;vertical-align: middle;">
+                        <h2>HR Timesheet - Select product</h2>
+                        <p>Choose a product for each timesheet entry!</p>
+                    </div>
+                </div>
+                <div class="oe_span6" style="display: table;height: 300px;overflow: hidden;">
+                    <div style="display: table-cell;vertical-align: middle;">
+                        <a href="https://apps.openerp.com/apps/modules/9.0/hr_timesheet_select_product_cover">
+                            <img class="img img-responsive" style="border:1px solid lightgrey; padding: 5px;box-shadow: 4px 4px 8px lightgrey;" src="hr_timesheet_select_product_cover.png"/>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 </div>
-
