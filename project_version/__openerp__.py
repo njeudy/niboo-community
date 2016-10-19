@@ -5,7 +5,7 @@
 {
     'name': 'Project - Version Management',
     'category': 'Project',
-    'summary': 'Allows the management of versions in projects',
+    'summary': 'Manage the versions of your projects',
     'website': 'https://www.niboo.be/',
     'version': '9.0.1.0.0',
     'description': '''
