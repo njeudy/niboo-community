@@ -20,6 +20,7 @@
         'hr_timesheet_task',
     ],
     'data': [
+        'views/hr_timesheet.xml',
         'views/hr_timesheet_assets.xml',
     ],
     'qweb': [
