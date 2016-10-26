@@ -4,14 +4,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'HR - Timesheets design',
+    'name': 'Timesheet - Improved design',
     'category': 'HR',
-    'summary': 'A more user-friendly timesheet',
+    'summary': 'Profit from a user-friendlier timesheet',
     'website': 'https://www.niboo.be/',
     'version': '9.0.1.0.0',
     'license': 'AGPL-3',
     'description': """
-        Groups the tasks on a timesheet by customer and gives the option to easily hide tasks.
+        Groups the tasks on the timesheet by customer and allows the user to easily hide tasks.
         """,
     'author': 'Niboo',
     'depends': [
