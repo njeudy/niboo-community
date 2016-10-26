@@ -4,7 +4,6 @@
         <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <link rel="stylesheet" href="/hr_timesheet_task_presentation/static/src/css/timesheet.css"/>
-                <script type="text/javascript" src="/hr_timesheet_task_presentation/static/src/js/fold_project.js"/>
             </xpath>
         </template>
     </data>
