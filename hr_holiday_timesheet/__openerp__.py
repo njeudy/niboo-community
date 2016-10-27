@@ -4,14 +4,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'HR - Holiday On Timesheet',
+    'name': 'Timesheet - Include leaves',
     'category': 'HR',
-    'summary': "Timesheet shows employee's holidays",
+    'summary': "Keep track of your leaves directly from your timesheet",
     'website': 'http://www.niboo.be',
     'license': 'AGPL-3',
-    'version': '9.1.0',
+    'version': '9.0.1.0',
     'description': """
-    When a leave is approved, this module create analytic lines for the holidays to appear in the timesheet
+    Keep an overview of your leaves by having them displayed directly on your timesheet.
+    As soon as a leave is approved, it will show up on the employee's timesheet on a designated line.
         """,
     'author': 'Niboo',
     'depends': [
