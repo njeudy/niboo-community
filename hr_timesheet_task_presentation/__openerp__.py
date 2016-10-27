@@ -32,7 +32,7 @@
 
     ],
     'images': [
-        'static/description/timesheet_cover.png',
+        'static/description/hr_timesheet_task_presentation_cover.png',
     ],
     'installable': True,
     'application': True,

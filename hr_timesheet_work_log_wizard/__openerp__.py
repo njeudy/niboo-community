@@ -6,14 +6,17 @@
 {
     'name': 'Timesheet - Work Logger',
     'category': 'HR',
-    'summary': 'Log work on timesheets with a wizard',
+    'summary': 'Makes logging time easy and efficient',
     'license': 'AGPL-3',
     'website': 'https://www.niboo.be',
     'version': '9.0.1.0.0',
     'description': '''
-Allows logging work efficiently on timesheets. The user launches the wizard from
-either within the timesheet or a task. There they can define project, task,
-product, description, date and hours.
+Add a wizard to simply log your work:
+- Direct access from timesheets and tasks: click on the Log Work button or directly on the desired timesheet table cell
+- Choose a task, and the corresponding project is automatically set
+- Makes it possible to specify a product for each entry
+- Forces user to specify which project they worked on
+- Makes user describe the work they have done
         ''',
     'author': 'Niboo',
     'depends': [
