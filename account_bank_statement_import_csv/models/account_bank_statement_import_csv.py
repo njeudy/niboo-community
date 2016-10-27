@@ -74,18 +74,19 @@ class AccountBankStatementImport(models.TransientModel):
                             currency, account_num]
                         processed = False
                         for statement in account_statements:
-                            if statement.get('name') == line['Account'] + '-' + \
-                                    line['Statement number']:
-                                # There is already a statement with this number, add the transaction
-                                if not statement.get(
-                                        'date') or entry_date_obj > statement.get(
-                                        'date'):
+                            if statement.get('name') == line['Account'] + '-' \
+                                    + line['Statement number']:
+                                # There is already a statement with this number,
+                                # add the transaction
+                                if not statement.get('date') \
+                                     or entry_date_obj > statement.get('date'):
                                     statement['date'] = entry_date_obj
                                 statement['transactions'].append(vals_line)
                                 processed = True
                                 break
                         if not processed:
-                            # There is no statement with this number, create one with this transaction
+                            # There is no statement with this number, create one
+                            # with this transaction
                             statement = {
                                 'name': line['Account'] + '-' + line[
                                     'Statement number'],
@@ -111,5 +112,6 @@ class AccountBankStatementImport(models.TransientModel):
 
         except Exception, e:
             raise exceptions.UserError(_(
-                'The following problem occurred during import. The file might not be valid.\n\n %s' % e.message))
+                'The following problem occurred during import. The file might '
+                'not be valid.\n\n %s' % e.message))
         return currency, account_num, all_statements[currency, account_num]
