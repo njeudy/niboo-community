@@ -1,33 +1,19 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Jérôme Guerriat
-#    Copyright 2015 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2015 Jérôme Guerriat
+# © 2015 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 
 {
     'name': 'Delete Odoo demo project',
     'category': 'Project',
     'summary': 'Remove the Odoo demo project',
-    'website': '',
-    'version': '9.1.0',
-    'description': """
-Module that deletes the default project "odoo" and its tasks and analytic account
-        """,
+    'website': 'https://www.niboo.be/',
+    'version': '9.0.1.0.0',
+    'license': 'AGPL-3',
+    'description': '''
+This module deletes the default project "Start here to discover Odoo", its tasks and analytic account
+        ''',
     'author': 'Niboo',
     'depends': [
         'project',
@@ -35,12 +21,9 @@ Module that deletes the default project "odoo" and its tasks and analytic accoun
     'data': [
         'data/project_data.xml',
     ],
-    'qweb': [
-    ],
-    'demo': [
-    ],
-    'css': [
+    'images': [
+        '/static/description/delete_odoo_project_cover.png',
     ],
     'installable': True,
-    'application': True,
+    'application': False,
 }
