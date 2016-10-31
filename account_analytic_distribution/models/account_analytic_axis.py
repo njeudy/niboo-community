@@ -19,21 +19,19 @@
 #
 ##############################################################################
 
-from openerp import fields
-from openerp import models
-from openerp.exceptions import ValidationError
+from openerp import exceptions, fields, models
 
 
 class AccountAnalyticAxis(models.Model):
 
-    _name = "account.analytic.axis"
-    _description = "Analytic axis"
+    _name = 'account.analytic.axis'
+    _description = 'Analytic axis'
 
-    name = fields.Char("Axis name")
-
-    analytic_account_id = fields.One2many('account.analytic.account',
-                                          'analytic_account_axis_id',
-                                          'Analytic account')
+    name = fields.Char('Axis name')
+    active = fields.Boolean('Active', default=True)
+    analytic_account_ids = fields.One2many('account.analytic.account',
+                                           'analytic_account_axis_id',
+                                           'Analytic Accounts')
 
     def check_percent_on_axis(self, distributions):
         distribution_by_axis = {}
@@ -50,11 +48,11 @@ class AccountAnalyticAxis(models.Model):
                 message += e.name
 
         if message:
-            raise ValidationError(message)
+            raise exceptions.ValidationError(message)
         return True
 
     def _check_percent_on_axis(self, distributions):
         total = sum(distribution.rate for distribution in distributions)
         if round(total, 2) != 100.0 and round(total, 2) != 0.0:
-            raise ValidationError('Axis %s has a total of %s %% \n' %
-                                  (self.name, total))
+            raise exceptions.ValidationError(
+                'Axis %s has a total of %s %% \n' % (self.name, total))

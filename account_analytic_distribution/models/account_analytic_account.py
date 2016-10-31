@@ -19,12 +19,26 @@
 #
 ##############################################################################
 
-from openerp import fields
-from openerp import models
+from openerp import api, fields, models
+
 
 class AccountAnalyticAccount(models.Model):
 
-    _inherit = "account.analytic.account"
+    _inherit = 'account.analytic.account'
 
     analytic_account_axis_id = fields.Many2one(
-        'account.analytic.axis', string="Analytic Axis", required=True)
+        'account.analytic.axis', string='Analytic Axis', required=True)
+
+    @api.model
+    def default_get(self, fields):
+        res = super(AccountAnalyticAccount, self).default_get(fields)
+        if 'analytic_account_axis_id' not in res:
+            AnalyticAxis = self.env['account.analytic.axis']
+            axis = AnalyticAxis.search([], limit=1)
+            if not axis:
+                axis = AnalyticAxis.create({
+                    'name': 'Dummy Axis',
+                    'active': False,
+                })
+            res['analytic_account_axis_id'] = axis.id
+        return res
