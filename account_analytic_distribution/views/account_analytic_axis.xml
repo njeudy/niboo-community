@@ -8,7 +8,8 @@
                 <form string="Create an analytic axis">
                     <sheet>
                         <group>
-                            <field name="name" />
+                            <field name="active"/>
+                            <field name="name"/>
                         </group>
                     </sheet>
                 </form>
@@ -20,7 +21,8 @@
             <field name="model">account.analytic.axis</field>
             <field name="arch" type="xml">
                 <tree string="Analytic Axis" editable="bottom">
-                    <field name="name" />
+                    <field name="active"/>
+                    <field name="name"/>
                 </tree>
             </field>
         </record>
