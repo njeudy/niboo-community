@@ -12,9 +12,9 @@ class AccountAnalyticAccount(models.Model):
 
     analytic_account_axis_id = fields.Many2one(
         'account.analytic.axis', string='Analytic Axis', required=True,
-        default=lambda self: self._default_analytic_account_axis_id())
+        default=lambda self: self._default_analytic_account_axis())
 
-    def _default_analytic_account_axis_id(self):
+    def _default_analytic_account_axis(self):
         AnalyticAxis = self.env['account.analytic.axis']
         axis = AnalyticAxis.search([], limit=1)
         if not axis:
@@ -22,4 +22,4 @@ class AccountAnalyticAccount(models.Model):
                 'name': 'Dummy Axis',
                 'active': False,
             })
-        return axis.id
+        return axis
