@@ -42,7 +42,7 @@ class TimesheetWorkLogger(models.TransientModel):
 
             sale_order = self.env['sale.order'].search(
                 [('project_id', '=', self.analytic_account_id.id),
-                 ('state', 'not in', ['done', 'cancel'])])
+                 ('state', 'not in', ['done', 'cancel'])], limit=1)
             product_ids = [line.product_id.id for line in
                            sale_order.sudo().order_line]
 
