@@ -8,8 +8,9 @@
     'version': '9.0.1.0.0',
     'category': 'Accounting & Finance',
     'License': 'AGPL-3',
+    'summary': 'Distribute your accounting move through multiple universe',
     'description': """
-
+With this module, you can allocate multiple times the same amount to different analytic account.
         """,
     'author': 'Niboo',
     'website': 'https://www.niboo.be',
@@ -23,6 +24,8 @@
     'data': [
         'data/project_data.xml',
         'data/ir_model_data.xml',
+        'security/account_analytic_plan_security.xml',
+        'security/ir.model.access.csv',
         'views/account_move_line.xml',
         'views/account_analytic_distribution.xml',
         'views/account_invoice.xml',
@@ -32,15 +35,11 @@
         'views/account_analytic_axis.xml',
         'views/project_project.xml',
         'views/account_bank_statement.xml',
-        'security/account_analytic_plan_security.xml',
-        'security/ir.model.access.csv',
         'wizard/account_reconcile_writeoff_view.xml',
     ],
     'images': [
-        'static/description/analytic_account_cover.png',
+        'static/description/cover.png',
     ],
-    'demo': [],
-    'test': [],
     'installable': True,
     'auto_install': False,
 }
