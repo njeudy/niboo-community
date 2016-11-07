@@ -140,7 +140,7 @@ class ProjectTask(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'project.task',
             'view_type': 'form',
-            'view_mode': 'tree',
+            'view_mode': 'tree,form',
             'target': 'current',
             'name': self.version_id.name,
             'domain': [('version_id', '=', self.version_id.id)],
