@@ -14,7 +14,7 @@ Allows you to manage versions in your projects.
     'author': 'Niboo',
     'license': 'AGPL-3',
     'depends': [
-        'project',
+        'sale_service',
     ],
     'data': [
         'data/project_version_state.xml',
