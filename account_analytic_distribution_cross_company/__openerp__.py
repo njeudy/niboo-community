@@ -1,49 +1,32 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
+# © 2015 Samuel Lefever
+# © 2015 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Multiple Analytic Distribution Cross Company',
-    'version': '1.0',
+    'summary': 'Manage analytic accounting through multiple companies',
+    'version': '9.0.1.0.0',
     'category': 'Accounting & Finance',
-    'description': """
-
-        """,
+    'license': 'AGPL-3',
+    'description': '''
+Manage your analytic accounting for your multiple companies and universe in Odoo.
+        ''',
     'author': 'Niboo',
     'website': 'https://www.niboo.be',
-    'depends': ['account_analytic_distribution'],
+    'depends': [
+        'account_analytic_distribution'
+    ],
     'data': [
-        'views/webclient_templates.xml',
-        'security/account_analytic_plan_security.xml',
-        'views/account_analytic_view.xml',
         'report/account_analytic_report_view.xml',
+        'security/account_analytic_plan_security.xml',
         'security/ir.model.access.csv',
+        'views/webclient_templates.xml',
+        'views/account_analytic_view.xml',
     ],
-    'demo': [],
     'images': [
-        'static/description/'
-        'account_analytic_distribution_cross_company_cover.png',
+        'static/description/cover.png',
     ],
-    'test': [],
     'installable': True,
+    'application': False,
     'auto_install': False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
