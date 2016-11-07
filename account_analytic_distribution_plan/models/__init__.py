@@ -1,23 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Author: Samuel Lefever
-#    Copyright 2015 Niboo SPRL
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2015 Samuel Lefever
+# © 2015 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from . import account_analytic_distribution_plan
 from . import account_invoice
@@ -25,5 +9,3 @@ from . import account_asset_category
 from . import account_move_line
 from . import hr_expense
 from . import account_bank_statement_line
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
