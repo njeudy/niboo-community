@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+# © 2015 Samuel Lefever
+# © 2015 Niboo SPRL (<https://www.niboo.be/>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import tools, models, fields
-from openerp.addons.decimal_precision import decimal_precision as dp
+from openerp import fields, models, tools
 
 
-class hr_timesheet_report(models.Model):
+class HrTimesheetReport(models.Model):
     _name = "account.analytic.report"
     _description = "Analytic"
     _auto = False
@@ -11,7 +14,8 @@ class hr_timesheet_report(models.Model):
     date = fields.Date('Date', readonly=True)
     name = fields.Char('Description', group_operator='max')
     line = fields.Char('Line', readonly=True, group_operator='max')
-    analytic_account_id = fields.Many2one('account.analytic.account', 'Analytic Account', readonly=True)
+    analytic_account_id = fields.Many2one('account.analytic.account',
+                                          'Analytic Account', readonly=True)
     company_id = fields.Many2one('res.company', 'Company', readonly=True)
     move_name = fields.Char('Move', group_operator='max')
     product = fields.Char('Product', group_operator='max')
@@ -79,7 +83,8 @@ aaa.analytic_account_axis_id as axis_id
             %s
             %s
             %s
-            )""" % (self._table, self._select(), self._from(), self._where(), self._group_by()))
+            )""" % (self._table, self._select(), self._from(),
+                    self._where(), self._group_by()))
 
     def read_group(self, cr, uid, domain, fields, groupby, offset=0, limit=None, context=None, orderby=False, lazy=True):
         """
