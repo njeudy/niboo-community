@@ -46,10 +46,8 @@ class TimesheetWorkLogger(models.TransientModel):
             product_ids = [line.product_id.id for line in
                            sale_order.sudo().order_line]
 
-            if not task_ids:
-                self.display_task = False
-            if product_ids:
-                self.display_product = True
+            self.display_task = task_ids and True or False
+            self.display_product = product_ids and True or False
 
     @api.onchange('analytic_account_id')
     def _onchange_analytic_account_id(self):
