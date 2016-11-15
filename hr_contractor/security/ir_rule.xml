@@ -18,7 +18,7 @@
     </data>
     <data noupdate="1">
         <delete id="project.project_public_members_rule" model="ir.rule"/>
-        <record model="ir.rule" id="hr_contractor.project_public_members_rule_limited">
+        <record model="ir.rule" id="project.project_public_members_rule">
             <field name="name">Project: Limited Employees: Portal, Employees or Followers</field>
             <field name="model_id" ref="project.model_project_project"/>
             <field name="domain_force">[('message_partner_ids', 'in', [user.partner_id.id])]</field>
@@ -36,7 +36,7 @@
 
         <!-- to subscribe check access to the record, follower is not enough at creation -->
         <delete id="project.task_visibility_rule" model="ir.rule"/>
-        <record model="ir.rule" id="hr_contractor.task_visibility_rule_limited">
+        <record model="ir.rule" id="project.task_visibility_rule">
             <field name="name">Project/Task: Limited Employees: Portal or Employee or (Followers and following)</field>
             <field name="model_id" ref="project.model_project_task"/>
             <field name="domain_force">['|',
