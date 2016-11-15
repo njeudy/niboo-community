@@ -41,6 +41,6 @@
     'images': [
         'static/description/default_journal_expense_bills_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

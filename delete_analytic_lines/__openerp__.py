@@ -28,7 +28,7 @@ This module deletes the corresponding analytic lines when an account move is can
     ],
     'demo': [],
     'test': [],
-    'installable': True,
+    'installable': False,
     'application': False,
 }
 

@@ -24,6 +24,6 @@ This module deletes the default project "Start here to discover Odoo", its tasks
     'images': [
         '/static/description/delete_odoo_project_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

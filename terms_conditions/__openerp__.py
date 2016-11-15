@@ -23,6 +23,6 @@ Allows you to add Terms and Conditions to your documents.
         'views/res_company.xml',
         'views/report.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }

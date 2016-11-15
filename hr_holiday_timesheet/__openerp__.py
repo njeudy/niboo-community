@@ -28,6 +28,6 @@
     'images': [
       'static/description/hr_holiday_timesheet_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

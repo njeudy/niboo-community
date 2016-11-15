@@ -25,6 +25,6 @@ It automatically changes the step of your tasks when you put a version in produc
     'images': [
         'static/description/workflow_versioning_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

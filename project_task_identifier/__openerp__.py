@@ -23,6 +23,6 @@
     'images': [
         'static/description/project_task_identifier_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': True,
 }

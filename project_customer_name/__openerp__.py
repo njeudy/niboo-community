@@ -21,6 +21,6 @@
     'images': [
         'static/description/project_customer_name_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

@@ -25,6 +25,6 @@ Allows you to manage versions in your projects.
     'images': [
         'static/description/versioning_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

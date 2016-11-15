@@ -25,6 +25,6 @@ Advance your task in its different steps and states seamlessly and coherently.
     'images': [
         'static/description/project_workflow.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

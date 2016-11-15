@@ -24,6 +24,6 @@
     'qweb': [
         'static/src/xml/hr_timesheet_task.xml',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

@@ -31,6 +31,6 @@ Add a wizard to simply log your work:
     'images': [
         'static/description/hr_timesheet_work_log_wizard_cover.png',
     ],
-    'installable': True,
+    'installable': False,
     'application': False,
 }

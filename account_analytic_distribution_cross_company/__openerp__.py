@@ -42,7 +42,7 @@
         'account_analytic_distribution_cross_company_cover.png',
     ],
     'test': [],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
 
