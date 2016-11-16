@@ -27,6 +27,7 @@ Add a wizard to simply log your work:
         'wizards/work_log_wizard.xml',
         'views/hr_timesheet.xml',
         'views/project_task.xml',
+        'views/analytic_view.xml',
     ],
     'images': [
         'static/description/hr_timesheet_work_log_wizard_cover.png',
