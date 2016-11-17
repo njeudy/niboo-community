@@ -3,52 +3,59 @@
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api, _
+from openerp import _, api, exceptions, fields, models
 from datetime import datetime, timedelta
-from openerp.exceptions import Warning
 from openerp.osv import fields as osv_fields
 
 
 class HRHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    message = fields.Char(string='Selected days', compute='_compute_message')
+    message = fields.Char('Selected days', compute='_compute_message')
+    number_of_days_temp = fields.Float(compute='_compute_message')
 
-    @api.depends('number_of_days', 'number_of_days_temp',
-                 'date_from', 'date_to')
-    @api.onchange('number_of_days', 'number_of_days_temp',
-                 'date_from', 'date_to')
+    @api.depends('date_from', 'date_to', 'number_of_days_temp',
+                 'number_of_days')
+    @api.onchange('date_from', 'date_to', 'number_of_days_temp',
+                  'number_of_days')
     def _compute_message(self):
         for holiday in self:
-            total_days_taken = 0
             if holiday.date_from and holiday.date_to:
-                if holiday.number_of_days_temp % 0.5 != 0:
-                    raise Warning(_('Please select a multiple of 0.5 days'))
-
                 time_from = self.str_to_timezone(holiday.date_from)
                 time_to = self.str_to_timezone(holiday.date_to)
                 message = ''
-
                 for timestamp in self.datespan(time_from, time_to):
-                    is_full_day = \
-                        holiday.is_full_day(timestamp, time_from, time_to)
-
-                    if is_full_day:
-                        total_days_taken += 1
-                        message = \
-'''
-%s <b>whole day</b> %s<br/>
-''' % (message, timestamp.date())
+                    if holiday.is_full_day(timestamp, time_from, time_to):
+                        message = '%s <b>Full Day</b> %s<br/>' % (
+                            message, timestamp.date())
                     else:
-                        total_days_taken += 0.5
-                        message = \
-'''
-%s <b style=\'color:red;\'>half day</b> %s<br/>
-''' % (message, timestamp.date())
-
+                        message = '''
+                        %s <b style="color:red;">Half Day</b> %s<br/>
+                        ''' % (message, timestamp.date())
                 holiday.message = message
-                holiday.number_of_days_temp = total_days_taken
-                holiday.number_of_days = total_days_taken
+                holiday.number_of_days_temp = holiday.get_number_of_days()
+
+    def get_number_of_days(self):
+        self.ensure_one()
+        leave_days = 0
+        time_from = self.str_to_timezone(self.date_from)
+        time_to = self.str_to_timezone(self.date_to)
+        for timestamp in self.datespan(time_from, time_to):
+            if self.is_full_day(timestamp, time_from, time_to):
+                leave_days += 1
+            else:
+                leave_days += 0.5
+        return leave_days
+
+    @api.multi
+    @api.constrains('number_of_days')
+    def _check_number_of_days(self):
+        for holiday in self:
+            if holiday.type == "remove"\
+                    and holiday.number_of_days\
+                    and holiday.number_of_days % 0.5 != 0:
+                raise exceptions.ValidationError(
+                    _('Please select a multiple of 0.5 days'))
 
     @api.multi
     def holidays_validate(self):
