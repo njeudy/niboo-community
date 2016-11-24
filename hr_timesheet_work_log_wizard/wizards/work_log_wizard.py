@@ -87,4 +87,5 @@ class TimesheetWorkLogger(models.TransientModel):
             'product_id': self.product_id.id,
             'date': self.date_started,
             'task_id': self.task_id.id,
+            'user_id': self._uid
         })
