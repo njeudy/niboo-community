@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Import CSV (LUX) Bank Statement',
+    'name': 'Luxembourg Bank Statements',
     'category': 'Accounting & Finance',
     'summary': 'Import Bank Statements from Luxembourg',
     'website': 'https://www.niboo.be/',
