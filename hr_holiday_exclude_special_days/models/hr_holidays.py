@@ -9,23 +9,48 @@ from openerp import api
 from openerp import tools
 from datetime import datetime, timedelta
 
+
 class HRHolidays(models.Model):
     _inherit = "hr.holidays"
 
-    # Read dates in user timezone
-    @api.multi
-    def onchange_date_from(self, date_to, date_from):
-        date_from_user_tz = self.change_to_user_tz(date_from)
-        date_to_user_tz = self.change_to_user_tz(date_to)
-        return super(HRHolidays, self).onchange_date_from(date_to_user_tz,
-                                                          date_from_user_tz)
+    # api.onchange for date_from and date_to that we remove in XML
+    # Read dates in user timezone, deduct special days
+    @api.onchange('date_from', 'employee_id')
+    def compute_days_date_from(self):
 
-    @api.multi
-    def onchange_date_to(self, date_to, date_from):
-        date_from_user_tz = self.change_to_user_tz(date_from)
-        date_to_user_tz = self.change_to_user_tz(date_to)
-        return super(HRHolidays, self).onchange_date_to(date_to_user_tz,
-                                                        date_from_user_tz)
+        if not self.date_to or not self.date_from:
+            return
+
+        date_from_user_tz = self.change_to_user_tz(self.date_from)
+        date_to_user_tz = self.change_to_user_tz(self.date_to)
+        # call original odoo function with correct timezone
+        result = self.onchange_date_from(date_to_user_tz, date_from_user_tz)
+        number_of_days = result['value']['number_of_days_temp']
+        days_without_special_days = self.deduct_special_days(number_of_days,
+                                                               date_from_user_tz,
+                                                               date_to_user_tz,
+                                                               self.employee_id)
+
+        self.number_of_days_temp = days_without_special_days
+
+    @api.onchange('date_to', 'employee_id')
+    def compute_days_date_to(self):
+
+        if not self.date_to or not self.date_from:
+            return
+
+        date_from_user_tz = self.change_to_user_tz(self.date_from)
+        date_to_user_tz = self.change_to_user_tz(self.date_to)
+        # call original odoo function with correct timezone
+        result = self.onchange_date_to(date_to_user_tz, date_from_user_tz)
+        number_of_days = result['value']['number_of_days_temp']
+
+        days_without_special_days = self.deduct_special_days(number_of_days,
+                                                               date_from_user_tz,
+                                                               date_to_user_tz,
+                                                               self.employee_id)
+
+        self.number_of_days_temp = days_without_special_days
 
     def change_to_user_tz(self, date):
         """
@@ -47,28 +72,11 @@ class HRHolidays(models.Model):
         DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
         date_from = datetime.strptime(date_from, DATETIME_FORMAT)
         date_to = datetime.strptime(date_to, DATETIME_FORMAT)
-        for n in range(int((date_to - date_from).days)+1):
+        for n in range(int((date_to - date_from).days) + 1):
             yield date_from + timedelta(n)
 
-    @api.model
-    def onchange_date_with_emp(self, holiday_ids, date_to, date_from, employee_id,
-                               type_change):
-        if not date_to or not date_from:
-            return
-
-        # convert to user timezone
-        date_to = self.change_to_user_tz(date_to)
-        date_from = self.change_to_user_tz(date_from)
-
-        # call onchange method depending on field changed
-        if type_change == "date_to":
-            result = self.onchange_date_to(date_to, date_from)
-        else:
-            result = self.onchange_date_from(date_to, date_from)
-
-        # retrieve employee and the public leaves in its company
-
-        employee = self.env['hr.employee'].browse(int(employee_id))
+    def deduct_special_days(self, number_of_days, date_from, date_to, employee):
+        # retrieve public leaves in employee's company
         public_leave_ids = self.env['hr.public_holiday'].search([
             ('company_id', '=', employee.company_id.id)]
         )
@@ -83,10 +91,10 @@ class HRHolidays(models.Model):
             is_public_leave = str(date.date()) \
                               in public_leave_ids.mapped("date")
 
-            if is_public_leave or\
-                    (date.weekday() == 5 and deduct_saturday) or\
+            if is_public_leave or \
+                    (date.weekday() == 5 and deduct_saturday) or \
                     (date.weekday() == 6 and deduct_sunday):
                 days_to_deduct += 1
 
-        result['value']['number_of_days_temp'] -= days_to_deduct
-        return result
+        days_without_special_days = number_of_days - days_to_deduct
+        return days_without_special_days
