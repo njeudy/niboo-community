@@ -13,12 +13,17 @@ from datetime import datetime, timedelta
 class HRHolidays(models.Model):
     _inherit = "hr.holidays"
 
-    # api.onchange for date_from and date_to that we remove in XML
+    # Replace XML onchange, so employee_id can be used for api.onchange
+    @api.onchange('employee_id')
+    def onchange_employee(self):
+        return super(HRHolidays, self).onchange_employee(self.employee_id.id)
+
+    # Replace XML onchange for date_from and date_to
     # Read dates in user timezone, deduct special days
     @api.onchange('date_from', 'employee_id')
     def compute_days_date_from(self):
 
-        if not self.date_to or not self.date_from:
+        if not self.date_to or not self.date_from or not self.employee_id:
             return
 
         date_from_user_tz = self.change_to_user_tz(self.date_from)
@@ -36,7 +41,7 @@ class HRHolidays(models.Model):
     @api.onchange('date_to', 'employee_id')
     def compute_days_date_to(self):
 
-        if not self.date_to or not self.date_from:
+        if not self.date_to or not self.date_from or not self.employee_id:
             return
 
         date_from_user_tz = self.change_to_user_tz(self.date_from)

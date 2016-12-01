@@ -6,11 +6,14 @@
             <field name="model">hr.holidays</field>
             <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
             <field name="arch" type="xml">
-                <!-- Remove Odoo's onchange and replace it with modified @api.onchange in python -->
+                <!-- Remove Odoo's XML onchange and replace it with modified @api.onchange in python -->
                 <xpath expr="//sheet/group/group/div/div/field[@name='date_from']" position="attributes">
                     <attribute name="on_change">1</attribute>
                 </xpath>
                 <xpath expr="//sheet/group/group/div/div/field[@name='date_to']" position="attributes">
+                    <attribute name="on_change">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
                     <attribute name="on_change">1</attribute>
                 </xpath>
             </field>
