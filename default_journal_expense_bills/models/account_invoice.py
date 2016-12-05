@@ -3,7 +3,7 @@
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class AccountInvoice(models.Model):
@@ -36,6 +36,14 @@ class AccountInvoice(models.Model):
             return journals[0]
 
         return False
+
+    @api.onchange('partner_id', 'company_id')
+    def _onchange_partner_id(self):
+        res = super(AccountInvoice, self)._onchange_partner_id()
+        journal = self._get_default_journal()
+        if journal:
+            self.journal_id = journal
+        return res
 
     journal_id = fields.Many2one('account.journal',
                                  default=_get_default_journal)

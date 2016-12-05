@@ -33,7 +33,7 @@
     'author': 'Niboo',
     'depends': [
         'hr_expense',
-        'account'
+        'purchase',
     ],
     'data': [
         'views/account_journal.xml',
