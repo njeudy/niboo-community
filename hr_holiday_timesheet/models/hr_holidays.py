@@ -11,29 +11,36 @@ from openerp.osv import fields as osv_fields
 class HRHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    message = fields.Char('Selected days', compute='_compute_message')
-    number_of_days_temp = fields.Float(compute='_compute_message')
+    message = fields.Char('Selected days', compute='_compute_number_of_days')
+    number_of_days_temp = fields.Float(compute='deduct_special_days')
 
-    @api.depends('date_from', 'date_to', 'number_of_days_temp',
-                 'number_of_days')
-    @api.onchange('date_from', 'date_to', 'number_of_days_temp',
-                  'number_of_days')
-    def _compute_message(self):
-        for holiday in self:
-            if holiday.date_from and holiday.date_to:
-                time_from = self.str_to_timezone(holiday.date_from)
-                time_to = self.str_to_timezone(holiday.date_to)
-                message = ''
-                for timestamp in self.datespan(time_from, time_to):
-                    if holiday.is_full_day(timestamp, time_from, time_to):
-                        message = '%s <b>Full Day</b> %s<br/>' % (
-                            message, timestamp.date())
-                    else:
-                        message = '''
-                        %s <b style="color:red;">Half Day</b> %s<br/>
-                        ''' % (message, timestamp.date())
-                holiday.message = message
-                holiday.number_of_days_temp = holiday.get_number_of_days()
+    # Inherit function from module hr_holiday_exclude_special_days
+    # Use new get_number_of_days (multiples of half days) and add message
+    def deduct_special_days(self, number_of_days, date_from, date_to, employee):
+        multiple_of_half_days = self.get_number_of_days()
+        days_without_special_days, special_days_dict = \
+            super(HRHolidays, self).deduct_special_days(multiple_of_half_days,
+                                                        date_from, date_to,
+                                                        employee)
+
+        time_from = self.str_to_timezone(self.date_from)
+        time_to = self.str_to_timezone(self.date_to)
+        message = ''
+        for timestamp in self.datespan(time_from, time_to):
+            if timestamp.date() in special_days_dict:
+                message = '%s<span>%s %s<br/></span>' % (
+                    message, timestamp.date(),
+                    special_days_dict[timestamp.date()])
+            else:
+                if self.is_full_day(timestamp, time_from, time_to):
+                    message = '%s<span>%s <b>Full day</b><br/></span>' % (
+                        message, timestamp.date())
+                else:
+                    message = '%s<span>%s <b>Half day</b><br/></span>' % (
+                        message, timestamp.date())
+
+        self.message = message
+        return days_without_special_days, special_days_dict
 
     def get_number_of_days(self):
         self.ensure_one()

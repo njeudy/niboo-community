@@ -19,6 +19,7 @@
         'hr_timesheet',
         'hr_timesheet_sheet',
         'hr_holidays',
+        'hr_holiday_exclude_special_days',
     ],
     'data': [
         'data/holiday_account.xml',

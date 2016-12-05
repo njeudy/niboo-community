@@ -63,7 +63,8 @@ class HRHolidays(models.Model):
     def compute_days(self, result, date_from, date_to):
         number_of_days = result['value']['number_of_days_temp']
         if self.employee_id:
-            days_without_special_days = self.deduct_special_days(
+            days_without_special_days, special_days_dict = \
+                                                    self.deduct_special_days(
                                                             number_of_days,
                                                             date_from,
                                                             date_to,
@@ -81,17 +82,29 @@ class HRHolidays(models.Model):
         deduct_saturday = employee.company_id.deduct_saturday_in_leave
         deduct_sunday = employee.company_id.deduct_sunday_in_leave
 
+        days_to_deduct = 0
+        # Dict of specific date and special day that can be used when
+        # inheriting the module
+        special_days_dict = {}
+
         # for each date in the selected period, check if a public holiday exists
         # and/or if we should deduct Saturday/Sunday
-        days_to_deduct = 0
         for date in self.daterange(date_from, date_to):
-            is_public_leave = str(date.date()) \
-                              in public_leave_ids.mapped("date")
+            public_leave = public_leave_ids.filtered(lambda r: r.date == str(date.date()))
 
-            if is_public_leave or \
+            if public_leave or \
                     (date.weekday() == 5 and deduct_saturday) or \
                     (date.weekday() == 6 and deduct_sunday):
                 days_to_deduct += 1
 
+                if public_leave:
+                    special_days_dict[date.date()] = 'Public Holiday: %s' \
+                                              % public_leave.name
+                elif date.weekday() == 5:
+                    special_days_dict[date.date()] = 'Saturday'
+                else:
+                    special_days_dict[date.date()] = 'Sunday'
+
+
         days_without_special_days = number_of_days - days_to_deduct
-        return days_without_special_days
+        return days_without_special_days, special_days_dict
