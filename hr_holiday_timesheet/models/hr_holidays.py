@@ -12,9 +12,8 @@ class HRHolidays(models.Model):
     _inherit = 'hr.holidays'
 
     message = fields.Char('Selected days', compute='deduct_special_days')
-    # TODO use proper compute field from holiday_exclude_special days
-    # otherwise it calculates it again after the deduct_special_days function
-    number_of_days_temp = fields.Float(readonly=1)
+    number_of_days_temp = fields.Float(compute='deduct_special_days',
+                                       readonly=1)
 
     # Inherit function from module hr_holiday_exclude_special_days
     # Use multiple_of_half_days and add message
@@ -43,6 +42,7 @@ class HRHolidays(models.Model):
                             message, timestamp.date())
 
         self.message = message
+        self.number_of_days_temp = leave_days
         return leave_days
 
     @api.multi
