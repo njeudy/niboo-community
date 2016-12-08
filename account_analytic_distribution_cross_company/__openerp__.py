@@ -17,6 +17,10 @@ Manage your analytic accounting for your multiple companies and universe in Odoo
         'account_analytic_distribution'
     ],
     'data': [
+        'views/webclient_templates.xml',
+        'security/account_analytic_plan_security.xml',
+        'security/cross_company_accounting_group.xml',
+        'views/account_analytic_view.xml',
         'report/account_analytic_report_view.xml',
         'security/account_analytic_plan_security.xml',
         'security/ir.model.access.csv',
