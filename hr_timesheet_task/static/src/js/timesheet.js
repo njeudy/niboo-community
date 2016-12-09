@@ -172,6 +172,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
             var FieldMany2One = core.form_widget_registry.get('many2one');
             self.account_m2o = new FieldMany2One(self.dfm, {
                 attrs: {
+                    options: '{"create": False, "create_edit": False}',
                     name: 'account',
                     type: 'many2one',
                     modifiers: '{"required": true}',
@@ -180,6 +181,7 @@ odoo.define('hr_timesheet_task.sheet', function (require) {
 
             self.task_m2o = new FieldMany2One(self.dfm, {
                 attrs: {
+                    options: '{"create": False, "create_edit": False}',
                     name: 'task',
                     type: 'many2one',
                     domain: [
