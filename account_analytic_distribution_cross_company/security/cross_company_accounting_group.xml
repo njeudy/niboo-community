@@ -3,7 +3,7 @@
     <data>
         <record id="account_analytic_distribution_cross_company.analytic_crosscompany" model="res.groups">
             <field name="name">Analytic Cross Company</field>
-            <field name="comment">Group for that have access to all analytic account, cross-company</field>
+            <field name="comment">Group for people that have access to all analytic account, cross-company</field>
         </record>
     </data>
 </openerp>
