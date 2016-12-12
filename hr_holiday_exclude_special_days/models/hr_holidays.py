@@ -17,10 +17,14 @@ class HRHolidays(models.Model):
 
     @api.onchange('date_from', 'employee_id')
     def date_from_onchange(self):
+        if self.type == 'add':
+            return
         self.onchange_user_tz('date_from')
 
     @api.onchange('date_to', 'employee_id')
     def date_to_onchange(self):
+        if self.type == 'add':
+            return
         self.onchange_user_tz('date_to')
 
     # Read dates in user timezone
@@ -68,7 +72,7 @@ class HRHolidays(models.Model):
         else:
             self.number_of_days_temp = number_of_days
 
-    def deduct_special_days(self, number_of_days):
+    def deduct_special_days(self, number_of_days=0):
 
         days_to_deduct = 0
         special_days = self.get_special_days(self.date_from, self.date_to, self.employee_id)

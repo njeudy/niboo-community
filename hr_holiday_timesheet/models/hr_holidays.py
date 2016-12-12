@@ -12,13 +12,23 @@ class HRHolidays(models.Model):
     _inherit = 'hr.holidays'
 
     message = fields.Char('Selected days', compute='deduct_special_days')
-    number_of_days_temp = fields.Float(compute='deduct_special_days',
-                                       readonly=1)
+    number_of_days_calculated = fields.Float(compute='deduct_special_days',
+                                            inverse='set_number_of_days',
+                                            store=True)
+
+    # For leave allocation
+    @api.multi
+    def set_number_of_days(self):
+        self.ensure_one()
+        self.number_of_days_temp = self.number_of_days_calculated
 
     # Inherit function from module hr_holiday_exclude_special_days
-    # Use multiple_of_half_days and add message
+    # Use multiple of half days and add message
     @api.depends('date_from', 'date_to', 'employee_id')
-    def deduct_special_days(self, number_of_days=False):
+    def deduct_special_days(self, number_of_days=0):
+        if self.type == 'add':
+            return
+
         message = ''
         leave_days = 0
         if self.date_from and self.date_to and self.employee_id:
