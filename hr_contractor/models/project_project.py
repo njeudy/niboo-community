@@ -14,7 +14,7 @@ class ProjectProject(models.Model):
         for project in self:
             partners = self.env['res.partner'].browse(partner_ids)
 
-            partner_names = ', '.join(map(str, partners.mapped('name')))
+            partner_names = ', '.join(map(unicode, partners.mapped('name')))
 
             if project.analytic_account_id.partner_id:
                 project.analytic_account_id.partner_id.message_subscribe(
@@ -35,7 +35,7 @@ Please select a customer they follow to give access to this project
     @api.multi
     def message_unsubscribe(self, partner_ids=None, channel_ids=None):
         partners = self.env['res.partner'].browse(partner_ids)
-        partner_names = partners.mapped('name')
+        partner_names =', '.join(map(unicode, partners.mapped('name')))
 
         for project in self:
             project.analytic_account_id.partner_id.message_unsubscribe(
