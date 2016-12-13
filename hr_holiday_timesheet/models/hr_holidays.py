@@ -11,10 +11,11 @@ from openerp.osv import fields as osv_fields
 class HRHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    message = fields.Char('Selected days', compute='deduct_special_days')
-    number_of_days_calculated = fields.Float(compute='deduct_special_days',
-                                            inverse='set_number_of_days',
-                                            store=True)
+    message = fields.Char('Selected days', compute='number_of_days_calculated')
+    number_of_days_calculated = fields.Float(
+        compute='number_of_days_calculated',
+        inverse='set_number_of_days',
+        store=True)
 
     # For leave allocation
     @api.multi
@@ -22,9 +23,14 @@ class HRHolidays(models.Model):
         self.ensure_one()
         self.number_of_days_temp = self.number_of_days_calculated
 
+    @api.multi
+    @api.depends('date_from', 'date_to', 'employee_id')
+    def number_of_days_calculated(self):
+        for holiday in self:
+            holiday.deduct_special_days()
+
     # Inherit function from module hr_holiday_exclude_special_days
     # Use multiple of half days and add message
-    @api.depends('date_from', 'date_to', 'employee_id')
     def deduct_special_days(self, number_of_days=0):
         if self.type == 'add':
             return
@@ -32,7 +38,8 @@ class HRHolidays(models.Model):
         message = ''
         leave_days = 0
         if self.date_from and self.date_to and self.employee_id:
-            special_days = self.get_special_days(self.date_from, self.date_to, self.employee_id)
+            special_days = self.get_special_days(self.date_from, self.date_to,
+                                                 self.employee_id)
 
             time_from = self.str_to_timezone(self.date_from)
             time_to = self.str_to_timezone(self.date_to)
@@ -59,8 +66,8 @@ class HRHolidays(models.Model):
     @api.constrains('number_of_days')
     def _check_number_of_days(self):
         for holiday in self:
-            if holiday.type == "remove"\
-                    and holiday.number_of_days\
+            if holiday.type == "remove" \
+                    and holiday.number_of_days \
                     and holiday.number_of_days % 0.5 != 0:
                 raise exceptions.ValidationError(
                     _('Please select a multiple of 0.5 days'))
@@ -147,9 +154,10 @@ class HRHolidays(models.Model):
         date_from = time_from.date()
         date_to = time_to.date()
 
-        return (timestamp.date() == date_from and time_from.hour < 12)\
-            or (timestamp.date() == date_to and time_to.hour >= 12)\
-            or (timestamp.date() != date_to and timestamp.date() != date_from)
+        return (timestamp.date() == date_from and time_from.hour < 12) \
+               or (timestamp.date() == date_to and time_to.hour >= 12) \
+               or (
+               timestamp.date() != date_to and timestamp.date() != date_from)
 
     def datespan(self, start_date, end_date, delta=timedelta(days=1)):
         current_date = start_date
