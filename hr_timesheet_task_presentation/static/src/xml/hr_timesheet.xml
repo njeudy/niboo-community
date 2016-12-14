@@ -54,5 +54,6 @@
                 });
             </script>
         </t>
+        <t t-jquery=".oe_view_nocontent.oe_edit_only" t-operation="replace"/>
     </t>
 </templates>
