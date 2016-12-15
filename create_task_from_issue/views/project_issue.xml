@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="project_issue_form_view_inherit" model="ir.ui.view">
+            <field name="name">project_issue_inherit</field>
+            <field name="model">project.issue</field>
+            <field name="inherit_id" ref="project_issue.project_issue_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']/button[@name='toggle_active']" position="before">
+                    <button name="create_task" type="object" class="oe_stat_button"
+                            icon="fa-share-square-o" string="Create a Task" attrs="{'invisible': [('task_id', '!=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
