@@ -7,7 +7,7 @@
     'category': 'Project',
     'summary': 'Add a workflow to project tasks',
     'website': 'https://www.niboo.be/',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'description': '''
 Define a workflow enabling you to better manage the state of your tasks.
 Create workflows personalized to the different types of tasks you have.
@@ -25,6 +25,6 @@ Advance your task in its different steps and states seamlessly and coherently.
     'images': [
         'static/description/project_workflow.png',
     ],
-    'installable': False,
+    'installable': True,
     'application': False,
 }
