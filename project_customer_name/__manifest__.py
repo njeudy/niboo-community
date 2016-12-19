@@ -7,9 +7,10 @@
     'category': 'Project',
     'summary': 'Add customer name to project tiles',
     'website': 'https://www.niboo.be/',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'description': """
-        With this module, you can easily keep track on which project belongs to which client.
+This module automatically adds the project's customer name at the end of the
+project's name
         """,
     'author': 'Niboo',
     'depends': [
@@ -21,6 +22,6 @@
     'images': [
         'static/description/project_customer_name_cover.png',
     ],
-    'installable': False,
+    'installable': True,
     'application': False,
 }

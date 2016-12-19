@@ -50,8 +50,11 @@ class ProjectTask(models.Model):
             domain = ['|', ('name', operator, name),
                       ('identifier', operator, name)]
 
-        pos = self.search(domain + args, limit=limit)
-        return pos.name_get()
+        project = self.search(domain + args, limit=limit)
+        if project:
+            return project.name_get()
+        return super(ProjectTask, self).name_search(name, args, operator,
+                                                    limit)
 
     @api.multi
     @api.depends('name', 'identifier')
