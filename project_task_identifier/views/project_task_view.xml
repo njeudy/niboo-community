@@ -10,7 +10,7 @@
                 <field name="identifier" attrs="{'invisible': [('is_created', '=', False)]}"/>
             </xpath>
             <xpath expr="//field[@name='project_id']" position="replace">
-                <field name="project_id" domain="[('state','not in', ('close', 'cancelled'))]" on_change="onchange_project(project_id)" context="{'default_use_tasks':1}" required="True" attrs="{'readonly': [('is_created', '=', True)]}"/>
+                <field name="project_id" context="{'default_use_tasks':1}" required="True" attrs="{'readonly': [('is_created', '=', True)]}"/>
             </xpath>
         </field>
     </record>

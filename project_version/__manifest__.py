@@ -7,7 +7,7 @@
     'category': 'Project',
     'summary': 'Manage the versions of your projects',
     'website': 'https://www.niboo.be/',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'description': '''
 Allows you to manage versions in your projects.
     ''',
@@ -25,6 +25,6 @@ Allows you to manage versions in your projects.
     'images': [
         'static/description/versioning_cover.png',
     ],
-    'installable': False,
+    'installable': True,
     'application': False,
 }

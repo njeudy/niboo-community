@@ -2,11 +2,24 @@
 # © 2016 Pierre Faniel
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from openerp import api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
+
+
+class ProjectProject(models.Model):
+    _inherit = 'project.project'
+
+    requires_version = fields.Boolean('Requires Version', default=True)
+
+
+class ProjectTaskType(models.Model):
+    _inherit = 'project.task.type'
+
+    closed = fields.Boolean('Done Stage', default=False)
 
 
 class ProjectVersion(models.Model):
     _name = 'project.version'
+    _order = 'major DESC'
 
     @api.model
     def _default_state(self):
@@ -119,6 +132,8 @@ class ProjectTask(models.Model):
     _inherit = 'project.task'
 
     version_id = fields.Many2one('project.version', 'Version')
+    requires_version = fields.Boolean('Requires Version',
+                                      related='project_id.requires_version')
 
     @api.multi
     @api.constrains('version_id')
@@ -140,7 +155,7 @@ class ProjectTask(models.Model):
             'type': 'ir.actions.act_window',
             'res_model': 'project.task',
             'view_type': 'form',
-            'view_mode': 'tree',
+            'view_mode': 'tree,form',
             'target': 'current',
             'name': self.version_id.name,
             'domain': [('version_id', '=', self.version_id.id)],
