@@ -3,9 +3,7 @@
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
-from openerp import exceptions
-from openerp import _
+from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
@@ -45,7 +43,7 @@ class ProjectTask(models.Model):
                 task.is_created = True
 
     @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
         args = args or []
         domain = []
         if name:
