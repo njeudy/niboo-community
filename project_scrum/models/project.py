@@ -3,7 +3,7 @@
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class ProjectScrumTeam(models.Model):
@@ -24,8 +24,10 @@ class ProjectProject(models.Model):
 class ProjectSprint(models.Model):
     _name = 'project.sprint'
     _rec_name = 'display_name'
+    _order = 'start_date DESC'
+
     name = fields.Char('Name', required=True)
-    display_name = fields.Char('Display Name', compute="_compute_display_name",
+    display_name = fields.Char('Display Name', compute='_compute_display_name',
                                store=True)
     start_date = fields.Date('Start Date', required=True)
     end_date = fields.Date('End Date', required=True)
@@ -41,7 +43,7 @@ class ProjectSprint(models.Model):
         tasks = self.env['project.task'].search([('sprint_id', '=', self.id)])
         self.task_count = len(tasks)
 
-    @api.constrains("is_current_sprint")
+    @api.constrains('is_current_sprint')
     def check_current_sprint(self):
         self.ensure_one()
         self.check_is_not_both_previous_and_current()
@@ -56,7 +58,7 @@ class ProjectSprint(models.Model):
 
                 old_current.is_previous_sprint = True
 
-    @api.constrains("is_previous_sprint")
+    @api.constrains('is_previous_sprint')
     def check_previous_sprint(self):
         self.ensure_one()
         self.check_is_not_both_previous_and_current()
@@ -116,8 +118,6 @@ class ProjectSprint(models.Model):
             sprint.display_name = '%s - %s/%s' % (sprint.name,
                                                   sprint.end_date[8:10],
                                                   sprint.end_date[5:7])
-
-    _order = "start_date DESC"
 
 
 class ProjectTask(models.Model):

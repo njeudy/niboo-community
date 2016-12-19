@@ -5,13 +5,14 @@
 
 {
     'name': 'Project - Scrum',
-    'category': "Project",
+    'category': 'Project',
     'summary': 'Adds the ability to create Sprints and Scrum teams.',
     'website': 'https://www.niboo.be/',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'description': """
-        This module allows you to organize your tasks with the Scrum methodology. Using sprints, you can easily plan when your tasks should be done.
+This module allows you to organize your tasks with the Scrum methodology.
+Using sprints, you can easily plan when your tasks should be done.
         """,
     'author': 'Niboo',
     'depends': ['project'],
@@ -19,14 +20,9 @@
         'views/project_view.xml',
         'security/ir.model.access.csv',
     ],
-    'qweb': [],
     'images': [
         'static/description/project_scrum_cover.png',
     ],
-    'demo': [
-    ],
-    'css': [
-    ],
-    'installable': False,
+    'installable': True,
     'application': False,
 }
