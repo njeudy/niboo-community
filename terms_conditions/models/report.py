@@ -32,37 +32,27 @@ class Report(models.Model):
 
     @api.model
     def add_terms_and_conditions(self, original_report_pdf, original_report):
-
-        terms_and_conditions_decoded = False
-        default_terms_and_conditions_decoded = False
-
-        # todo change user language to report language (client language)
+        model = original_report.model
+        object = self.env[model].browse(self.ids)
+        company = object.company_id
+        if not company.terms_and_conditions:
+            return original_report_pdf
 
         language_field = original_report.terms_conditions_language_field
-        model = original_report.model
 
-        object = self.env[model].browse(self.ids)
         localdict = {'o': object}
         eval('document_language = o.%s' % language_field, localdict,
              mode='exec', nocopy=True)
         document_language = localdict.get('document_language',
                                           self._context.get('lang'))
 
-        company = object.company_id
-        # todo check language
-        terms_and_conditions_list = company.terms_and_conditions
+        terms_and_conditions = company.terms_and_conditions.filtered(
+            lambda t: t.language_id.code == document_language)
+        if not terms_and_conditions:
+            terms_and_conditions = company.terms_and_conditions[0]
 
-        for terms_and_conditions in terms_and_conditions_list:
-            if terms_and_conditions.language == document_language:
-                terms_and_conditions_decoded =\
-                    base64.decodestring(terms_and_conditions.datas)
-            if terms_and_conditions.language == 'default':
-                default_terms_and_conditions_decoded = \
-                    base64.decodestring(terms_and_conditions.datas)
-
-        if not terms_and_conditions_decoded:
-            terms_and_conditions_decoded = \
-                default_terms_and_conditions_decoded or False
+        terms_and_conditions_decoded = base64.decodestring(
+            terms_and_conditions.datas)
 
         if terms_and_conditions_decoded:
             writer = PdfFileWriter()

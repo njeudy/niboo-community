@@ -9,16 +9,11 @@ class IrAttachment(models.Model):
     _inherit = 'ir.attachment'
 
     description = fields.Text('Description', translate=True)
-    language = fields.Selection([
-        ('default', _('Default')),
-        ('en_US', _('English')),
-        ('fr_BE', _('French')),
-        ('nl_NL', _('Dutch')),
-    ])
+    language_id = fields.Many2one('res.lang', 'Language')
 
     _sql_constraints = [(
         'unique_language',
-        'unique(res_id, language)',
+        'unique(res_id, language_id)',
         _('You can only add one document per language'),
     )]
 
@@ -62,7 +57,7 @@ class ResCompany(models.Model):
                         'res_model': 'res.company',
                         'name': document.name,
                         'datas': document.datas,
-                        'language': document.language,
+                        'language_id': document.language_id.id,
                         'res_id': company.id,
                         'type': 'binary',
                     }))
