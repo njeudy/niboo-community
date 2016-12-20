@@ -3,9 +3,7 @@
 # © 2016 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp import models
-from openerp import fields
-from openerp import api
+from openerp import api, fields, models
 
 
 class ProjectProject(models.Model):
@@ -24,3 +22,16 @@ class ProjectProject(models.Model):
             result.append((project.id, name))
 
         return result
+
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        args = args or []
+        domain = []
+        if name:
+            domain = ['|', ('name', operator, name),
+                      ('customer_name', operator, name)]
+        projects = self.search(domain + args, limit=limit)
+        if projects:
+            return projects.name_get()
+        return super(ProjectProject, self).name_search(name, args, operator,
+                                                       limit)
