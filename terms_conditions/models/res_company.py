@@ -53,11 +53,13 @@ class ResCompany(models.Model):
 
             for document in company.terms_and_conditions:
                 if document not in terms_and_conditions:
+                    language_id = document.language_id.id if \
+                        document.language_id else False
                     attachments.append(IrAttachment.create({
                         'res_model': 'res.company',
                         'name': document.name,
                         'datas': document.datas,
-                        'language_id': document.language_id.id,
+                        'language_id': language_id,
                         'res_id': company.id,
                         'type': 'binary',
                     }))

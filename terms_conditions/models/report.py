@@ -46,10 +46,15 @@ class Report(models.Model):
         document_language = localdict.get('document_language',
                                           self._context.get('lang'))
 
+        # Try to find the terms and condition matching the document_language
         terms_and_conditions = company.terms_and_conditions.filtered(
             lambda t: t.language_id.code == document_language)
         if not terms_and_conditions:
-            terms_and_conditions = company.terms_and_conditions[0]
+            # Try to find the default terms and conditions (no language set)
+            terms_and_conditions = company.terms_and_conditions.filtered(
+                lambda t: not t.language_id)
+            if not terms_and_conditions:
+                return original_report_pdf
 
         terms_and_conditions_decoded = base64.decodestring(
             terms_and_conditions.datas)

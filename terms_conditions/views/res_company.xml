@@ -13,7 +13,7 @@
                             <field name="terms_and_conditions" nolabel="1">
                                 <tree editable="bottom">
                                     <field name="name" label="Name"/>
-                                    <field name="language_id" required="True" widget="selection"/>
+                                    <field name="language_id" placeholder="Default" widget="selection"/>
                                     <field name="datas" required="True"/>
                                 </tree>
                             </field>
