@@ -2,20 +2,7 @@
 # © 2015 Gael Rabier, Samuel Lefever, Pierre Faniel
 # © 2015 Niboo SPRL (<https://www.niboo.be/>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from openerp import _, api, fields, models
-
-
-class IrAttachment(models.Model):
-    _inherit = 'ir.attachment'
-
-    description = fields.Text('Description', translate=True)
-    language_id = fields.Many2one('res.lang', 'Language')
-
-    _sql_constraints = [(
-        'unique_language',
-        'unique(res_id, language_id)',
-        _('You can only add one document per language'),
-    )]
+from openerp import api, fields, models
 
 
 class ResCompany(models.Model):
@@ -32,7 +19,8 @@ class ResCompany(models.Model):
             company.terms_and_conditions = IrAttachment.search([
                 ('res_model', '=', 'res.company'),
                 ('type', '=', 'binary'),
-                ('res_id', '=', company.id)
+                ('res_id', '=', company.id),
+                ('is_terms_and_conditions', '=', True),
             ])
 
     @api.multi
@@ -44,7 +32,8 @@ class ResCompany(models.Model):
             terms_and_conditions = IrAttachment.search([
                 ('res_model', '=', 'res.company'),
                 ('type', '=', 'binary'),
-                ('res_id', '=', company.id)
+                ('res_id', '=', company.id),
+                ('is_terms_and_conditions', '=', True),
             ])
 
             for document in terms_and_conditions:
@@ -59,6 +48,7 @@ class ResCompany(models.Model):
                         'res_model': 'res.company',
                         'name': document.name,
                         'datas': document.datas,
+                        'is_terms_and_conditions': True,
                         'language_id': language_id,
                         'res_id': company.id,
                         'type': 'binary',
