@@ -58,7 +58,7 @@ class SaleOrder(models.Model):
                 create(subscription_values)
 
             if subscription:
-                self.subscription_id = subscription.id
+                self.project_id = subscription.analytic_account_id
 
     def _prepare_contract_data(self):
         template = self.env.ref(
